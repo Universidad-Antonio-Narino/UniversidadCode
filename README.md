@@ -4,5 +4,6 @@
 
 
 ## Explicacion de como poder acceder al repo, clonar la informacion y hacer todo lo relacionado al codigo
-
+1. >[!important]
+   >Es importante la creacion del github, imagino que si pudieron entrar aqui se supone que el github ya debe estar creado si no es momento de que lo hagas
 
