@@ -9,6 +9,5 @@
    >Vinculo para registrarse en github [Github registro](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home).
 > Ademas de eso debes tener en cuenta que para poder clonar el repositoria de manera sencilla puedes o instalar la app de github o instalar una aplicacion de control de versiones llamada git. Tambien dejare los vinculos.
 
-> [!NOTE]
 1. Si tu opcion fue github desktop este sera el vinculo [Github de escritorio](https://desktop.github.com/).
    - para poder clonar el repositorio
