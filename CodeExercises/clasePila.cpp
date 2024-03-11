@@ -1,9 +1,8 @@
 #include <cstdlib>
 #include <iostream>
+#include <windows.h>
 using namespace std;
-
 #define MaxTamaPila 10
-
 class Pila{
 	private:
 		float pila[MaxTamaPila];
@@ -22,15 +21,14 @@ class Pila{
 		float mayor();
 		float menor();
 		//void imprimirP();
-		
-};
-Pila::Pila(){ //Constructor
+		};
+    Pila::Pila(){ //Constructor
 	cima = -1;
-}
-
-Pila::~Pila() //Destructor
-{
-	cout << "\nGracias por utilizar este programa. \n";
+                }
+    Pila::~Pila(){//destructor 
+	Sleep(500);// esperar medio segundo 
+	cout << " GRACIAS POR USAR EL PROGRAMA \n";
+	Sleep(500);// esperar medio segundo 
 }
 
 void Pila::vaciaP(){
@@ -38,7 +36,7 @@ void Pila::vaciaP(){
 }
 void Pila::imprimirPila(){
 	if(estavaciaP()) 
-		cout<<"Pila vacia, por favor Inserte elementos ";
+		cout<<"PILA",Sleep(500)," VACIA, por favor Inserte elementos ";
 	else if(estallenaP())
 		cout<<"Pila llena, por favor elimine elementos ";
 	else
@@ -67,7 +65,7 @@ float Pila::mayor(){
 }
 
 float Pila::menor(){
-	float n=10000.0;
+	float n=100.0;
 	if(pila[cima]<n)
 		n = pila[cima];
 	return n;
@@ -103,19 +101,27 @@ int main(){
 int opcion;
 int a;
 int opcionPila;
+    cout<<"        P",Sleep(1000);
+	cout<<"I",Sleep(950);
+	cout<<"L",Sleep(900);
+	cout<<"A",Sleep(850);
+	cout<<"S \n",Sleep(800);	
+	cout << "~~ ESTE PROGRAMA FUNCIONA CON PILAS ~~" << endl;
+		Sleep(1500); //esperar durante 1.5 segundos 
 do{
 	Pila P1; //Negativos
 	Pila p2; //Positivos
-	cout << "---Este programa muestra una pila---" << endl;
-	cout << "         MENU         "<< endl;
-	cout <<" 1)   INSERTAR        ."<< endl;
-	cout <<" 2)   CONSULTAR           ."<<endl;
-	cout <<" 3)   SALIR           ."<<endl;
+	cout<<"        ~~       MENU DE OPCIONES     ~~"<<endl,	Sleep(1000);//esperar 1s para que aparesca 
+	cout<<"1)      ~~           INSERTAR         ~~"<<endl, Sleep(1000);//cada opcion en pantalla
+	cout<<"2)      ~~           CONSULTAR        ~~"<<endl, Sleep(1000);
+	cout<<"3)      ~~             SALIR          ~~"<<endl, Sleep(1000);
 	cin>>opcion;
 	switch(opcion){
 		case 1:
 			float elementop;
-			cout<<"Ingrese un elemento: \n";
+			cout<<"OPCION"<<opcion<<endl;
+			Sleep(1500);
+			cout<<"ELEMENTO QUE DESEA INGRESAR A LA PILA: \n", Sleep(500);
 			cin>>elementop;
 			if(elementop<0)
 				P1.insertarP(elementop);
@@ -150,6 +156,8 @@ do{
 				break;
 				
 				case 2:
+					//mayor
+					cout<<"OBJETO MAYOR DE LA PILA    \n";
 					if(opcionPila==1){
 						P1.mayor();
 					}
@@ -159,6 +167,8 @@ do{
 					break;
 				
 				case 3:
+					//menor
+					cout<<"OBJETO MENOR DE LA PILA    \n";
 					if(opcionPila==1){
 						P1.menor();
 					}
@@ -167,6 +177,8 @@ do{
 					}
 					break;
 				case 4:
+					//imprimir 
+					cout<<"IMPRIMIR PILA \n";
 					if(opcionPila==1){
 						P1.imprimirPila();		
 					}
@@ -175,27 +187,12 @@ do{
 					}
 					break;
 			}
-
-
-
-
-	
 		case 3:
 			exit(1);
 }
 }while(opcion != 3);
-
-
-/*
-for(int x=0; x<MaxTamaPila; x++){
-		
-}
-*/
-
 cout <<"\n";
-
 cout << "\n";
-
 system("PAUSE");
 return EXIT_SUCCESS;
 }
