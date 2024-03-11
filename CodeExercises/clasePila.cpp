@@ -60,9 +60,11 @@ void Pila::insertarP(float _elemento){
 }
 
 float Pila::mayor(){
-	float m=0.0;
-	if(pila[cima]>m)
-		m = pila[cima];
+	float m=-1000000;
+	for(int x = 0; x <= cima; x++){
+		if(pila[x]>m)
+			m = pila[x];
+	}
 	return m;
 }
 /*
@@ -70,8 +72,10 @@ Esta funcion no me devuelve el mas grande
 */
 float Pila::menor(){
 	float n=100.0;
-	if(pila[cima]<n)
-		n = pila[cima];
+	for(int x = 0;x <= cima;x++){
+		if(pila[x]<n)
+			n = pila[x];
+	}
 	return n;
 }
 
@@ -88,7 +92,6 @@ int Pila::quitarP(){
 		cima--;
 		return aux;
 	}
-	
 }
 
 int Pila::estallenaP(){
@@ -110,13 +113,13 @@ void MenuEleccionrd(Pila pila){
 	switch (opcionOperacion)
 	{
 	case 1:
-		cout<<pila.quitarP();
+		cout<<pila.quitarP()<<endl;
 		break;
 	case 2:
-		cout<<pila.mayor();
+		cout<<pila.mayor()<<endl;
 		break;
 	case 3:
-		cout<<pila.menor();
+		cout<<pila.menor()<<endl;
 		break;
 	case 4:
 		pila.imprimirPila();
@@ -124,92 +127,42 @@ void MenuEleccionrd(Pila pila){
 	default:
 		break;
 	}
-}
+};
 
 int main(){
-int opcion;
-int a;
-int opcionPila;
-do{
-	Pila P1; //Negativos
-	Pila p2; //Positivos
-	cout << "---Este programa muestra una pila---" << endl;
-	cout << "         MENU         "<< endl;
-	cout <<" 1)   INSERTAR        ."<< endl;
-	cout <<" 2)   CONSULTAR           ."<<endl;
-	cout <<" 3)   SALIR           ."<<endl;
-	cin>>opcion;
-	switch(opcion){
-		case 1:
-			float elementop;
-			cout<<"Ingrese un elemento: \n";
-			cin>>elementop;
-			if(elementop<0)
-				P1.insertarP(elementop);
-			else
-				p2.insertarP(elementop);
-			break;
-		case 2:
-			cout <<" A QUE PILA DESEA ACCEDER?\n (1- NEGATIVOS      2-POSITIVA)           "<<endl;	
-			cin>>opcionPila;
-			cout <<" QUE ACCION DESEA REALIZAR?"<<endl;
-			cout <<" 1)   QUITAR          ."<<endl;
-			cout <<" 2)   MAYOR           ."<<endl;
-			cout <<" 3)   MENOR           ."<<endl;
-			cout <<" 4)   IMPRIMIR           ."<<endl;	
-			
-			cin>>a;
-			switch(a){
-				case 1:
-					MenuEleccionrd(p1);
-					break;
-				case 2:
-					if(opcionPila==1){
-						P1.mayor();
-					}
-					else if(opcionPila==2){	
-						p2.mayor();	
-					}
-					break;
-				
-				case 3:
-					if(opcionPila==1){
-						P1.menor();
-					}
-					else if(opcionPila==2){	
-						p2.menor();	
-					}
-					break;
-				case 4:
-					if(opcionPila==1){
-						P1.imprimirPila();		
-					}
-					else if(opcionPila==2){	
-						p2.imprimirPila();	
-					}
-					break;
-			}
-
-
-
-
-	
-		case 3:
-			exit(1);
-}
-}while(opcion != 3);
-
-
-/*
-for(int x=0; x<MaxTamaPila; x++){
-		
-}
-*/
-
-cout <<"\n";
-
-cout << "\n";
-
-system("PAUSE");
-return EXIT_SUCCESS;
-}
+	Pila p1,p2;
+	int opcion;
+	do{
+		cout << "---Este programa muestra una pila---" << endl;
+		cout << "         MENU         "<< endl;
+		cout <<" 1)   INSERTAR                ."<< endl;
+		cout <<" 2)   OPERAR PILA             ."<<endl;
+		cout <<" 3)   SALIR                   ."<<endl;	
+		cin>>opcion;
+		switch(opcion){
+			case 1:
+				float elementop;
+				cout<<"Ingrese un elemento: \n";
+				cin>>elementop;
+				if(elementop<0)
+					p1.insertarP(elementop);
+				else
+					p2.insertarP(elementop);
+				break;
+			case 2:
+				int OpcionPila;
+				cout<<"Aqui puede eliminar, imprimir o ver los elementos que se encuentran dentro de cada pila. \n Pero para esto primero debe escoger a que pila desea operar. \n que pila desea escoger: "<<endl;
+				cout<<"1)   PILA 1      ."<<endl;
+				cout<<"2)   PILA 2      ."<<endl;
+				cin>>OpcionPila;
+				switch (OpcionPila){
+					case 1:
+						MenuEleccionrd(p1);
+						break;
+					case 2:
+						MenuEleccionrd(p2);
+						break;
+				}
+		}
+	}while(opcion != 3);
+};
