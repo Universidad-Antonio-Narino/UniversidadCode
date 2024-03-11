@@ -1,2 +1,2 @@
 print("Pruebas aqui")
-print("dias lunes y lluviosos como los sábados");
+print("dias lunes y lluviosos como los sábados")
