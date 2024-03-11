@@ -2,7 +2,9 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
+
 #define MaxTamaPila 10
+
 class Pila{
 	private:
 		float pila[MaxTamaPila];
@@ -63,7 +65,9 @@ float Pila::mayor(){
 		m = pila[cima];
 	return m;
 }
-
+/*
+Esta funcion no me devuelve el mas grande
+*/
 float Pila::menor(){
 	float n=100.0;
 	if(pila[cima]<n)
@@ -95,33 +99,50 @@ int Pila::estavaciaP(){
 	return cima == -1;
 }
 
-
+void MenuEleccionrd(Pila pila){
+	int opcionOperacion;
+	cout <<" QUE ACCION DESEA REALIZAR?"<<endl;
+	cout <<" 1)   QUITAR          ."<<endl;
+	cout <<" 2)   MAYOR           ."<<endl;
+	cout <<" 3)   MENOR           ."<<endl;
+	cout <<" 4)   IMPRIMIR        ."<<endl;
+	cin>>opcionOperacion;
+	switch (opcionOperacion)
+	{
+	case 1:
+		cout<<pila.quitarP();
+		break;
+	case 2:
+		cout<<pila.mayor();
+		break;
+	case 3:
+		cout<<pila.menor();
+		break;
+	case 4:
+		pila.imprimirPila();
+		break;
+	default:
+		break;
+	}
+}
 
 int main(){
 int opcion;
 int a;
 int opcionPila;
-    cout<<"        P",Sleep(1000);
-	cout<<"I",Sleep(950);
-	cout<<"L",Sleep(900);
-	cout<<"A",Sleep(850);
-	cout<<"S \n",Sleep(800);	
-	cout << "~~ ESTE PROGRAMA FUNCIONA CON PILAS ~~" << endl;
-		Sleep(1500); //esperar durante 1.5 segundos 
 do{
 	Pila P1; //Negativos
 	Pila p2; //Positivos
-	cout<<"        ~~       MENU DE OPCIONES     ~~"<<endl,	Sleep(1000);//esperar 1s para que aparesca 
-	cout<<"1)      ~~           INSERTAR         ~~"<<endl, Sleep(1000);//cada opcion en pantalla
-	cout<<"2)      ~~           CONSULTAR        ~~"<<endl, Sleep(1000);
-	cout<<"3)      ~~             SALIR          ~~"<<endl, Sleep(1000);
+	cout << "---Este programa muestra una pila---" << endl;
+	cout << "         MENU         "<< endl;
+	cout <<" 1)   INSERTAR        ."<< endl;
+	cout <<" 2)   CONSULTAR           ."<<endl;
+	cout <<" 3)   SALIR           ."<<endl;
 	cin>>opcion;
 	switch(opcion){
 		case 1:
 			float elementop;
-			cout<<"OPCION"<<opcion<<endl;
-			Sleep(1500);
-			cout<<"ELEMENTO QUE DESEA INGRESAR A LA PILA: \n", Sleep(500);
+			cout<<"Ingrese un elemento: \n";
 			cin>>elementop;
 			if(elementop<0)
 				P1.insertarP(elementop);
@@ -140,24 +161,9 @@ do{
 			cin>>a;
 			switch(a){
 				case 1:
-					if (a == 1){
-						if(opcionPila==1){
-							P1.quitarP();
-							cout<<"Se elimino la cima de la pila: \n";		
-						}
-					}
-					else if (opcionPila == 2){
-						p2.quitarP();
-						cout<<"Se elimino la cima de la pila: \n";	
-					}
-					else{
-						cout<<"Opcion no valida 404, devolviendo al menu";
-					}
-				break;
-				
+					MenuEleccionrd(p1);
+					break;
 				case 2:
-					//mayor
-					cout<<"OBJETO MAYOR DE LA PILA    \n";
 					if(opcionPila==1){
 						P1.mayor();
 					}
@@ -167,8 +173,6 @@ do{
 					break;
 				
 				case 3:
-					//menor
-					cout<<"OBJETO MENOR DE LA PILA    \n";
 					if(opcionPila==1){
 						P1.menor();
 					}
@@ -177,8 +181,6 @@ do{
 					}
 					break;
 				case 4:
-					//imprimir 
-					cout<<"IMPRIMIR PILA \n";
 					if(opcionPila==1){
 						P1.imprimirPila();		
 					}
@@ -187,12 +189,27 @@ do{
 					}
 					break;
 			}
+
+
+
+
+	
 		case 3:
 			exit(1);
 }
 }while(opcion != 3);
+
+
+/*
+for(int x=0; x<MaxTamaPila; x++){
+		
+}
+*/
+
 cout <<"\n";
+
 cout << "\n";
+
 system("PAUSE");
 return EXIT_SUCCESS;
 }
