@@ -1,3 +1,10 @@
+/*
+* Created by:
+* Santiago Angel
+* Santiago Moreno 
+* Nicolas Molina
+*/
+
 #include <cstdlib>
 #include <iostream>
 #include <windows.h>
@@ -157,10 +164,10 @@ int main(){
 				cin>>OpcionPila;
 				switch (OpcionPila){
 					case 1:
-						MenuEleccionrd(p1);
+						MenuEleccionrd(p1); //numeros negativos
 						break;
 					case 2:
-						MenuEleccionrd(p2);
+						MenuEleccionrd(p2); //numeros positivos
 						break;
 				}
 		}
