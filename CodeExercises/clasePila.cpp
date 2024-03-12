@@ -11,7 +11,7 @@
 using namespace std;
 
 #define MaxTamaPila 10
-
+//Definiendo los atributos y metodos de la clase pila
 class Pila{
 	private:
 		float pila[MaxTamaPila];
@@ -24,40 +24,43 @@ class Pila{
 		~Pila(); //destructor
 		void vaciaP();
 		void insertarP(float elemento) ;
-		int quitarP();
+		void quitarP();
 		int estavaciaP();
 		void imprimirPila();
 		float mayor();
 		float menor();
 		//void imprimirP();
-		};
-    Pila::Pila(){ //Constructor
+};
+Pila::Pila(){ //Constructor
 	cima = -1;
-                }
-    Pila::~Pila(){//destructor 
+};
+Pila::~Pila(){//destructor 
 	Sleep(500);// esperar medio segundo 
 	cout << " GRACIAS POR USAR EL PROGRAMA \n";
 	Sleep(500);// esperar medio segundo 
-}
+};
 
 void Pila::vaciaP(){
 	cima = -1;	
-}
+};
+
+//metodo de impresión de la pila
 void Pila::imprimirPila(){
 	if(estavaciaP()) 
 		cout<<"PILA",Sleep(500)," VACIA, por favor Inserte elementos ";
 	else if(estallenaP())
 		cout<<"Pila llena, por favor elimine elementos ";
-	else
+	else{
 		for(int x=cima; x>=0; x--)
 			cout<<pila[x]<<endl;
-}
+	};
+};
 
-
+//metodo de inserción de datos en la pila
 void Pila::insertarP(float _elemento){
 	if (estallenaP()){
 		cout <<"\nDesbordamiento pila\n se eliminara un elemento: \n";
-		quitarP( );
+		quitarP();
 	}
 	else{
 		cima++;
@@ -65,7 +68,7 @@ void Pila::insertarP(float _elemento){
 		cout << "Se inserta la cima: " << _elemento << " -> cima: " << cima << endl;
 	}
 }
-
+//metodo para determinar el mayor numero de la pila
 float Pila::mayor(){
 	float m=-1000000;
 	for(int x = 0; x <= cima; x++){
@@ -86,8 +89,8 @@ float Pila::menor(){
 	return n;
 }
 
-int Pila::quitarP(){
-	int aux;
+void Pila::quitarP(){
+	float aux;
 	float element;
 	if (estavaciaP()){
 		cout <<"\nSe intenta sacar un elemento en pila vacía\n ingrese un elemento a la pila: \n";
@@ -95,11 +98,10 @@ int Pila::quitarP(){
 		insertarP(element);
 	}else{
 		aux = pila[cima];
-		cout << "\nSe elimina la cima: " << aux << " -> cima: " << cima;
 		cima--;
-		return aux;
-	}
-}
+		cout << "\nSe elimina la cima: " << aux << " -> cima: " << cima;
+	};
+};
 
 int Pila::estallenaP(){
 	return cima == MaxTamaPila - 1;	
@@ -120,7 +122,7 @@ void MenuEleccionrd(Pila pila){
 	switch (opcionOperacion)
 	{
 	case 1:
-		cout<<pila.quitarP()<<endl;
+		pila.quitarP();
 		break;
 	case 2:
 		cout<<pila.mayor()<<endl;
@@ -136,6 +138,7 @@ void MenuEleccionrd(Pila pila){
 	}
 };
 
+//funcion principal
 int main(){
 	Pila p1,p2;
 	int opcion;
@@ -159,13 +162,13 @@ int main(){
 			case 2:
 				int OpcionPila;
 				cout<<"Aqui puede eliminar, imprimir o ver los elementos que se encuentran dentro de cada pila. \n Pero para esto primero debe escoger a que pila desea operar. \n que pila desea escoger: "<<endl;
-				cout<<"1)   PILA 1      ."<<endl;
-				cout<<"2)   PILA 2      ."<<endl;
+				cout<<"1)   PILA 1      .(NEGATIVOS)"<<endl;
+				cout<<"2)   PILA 2      .(POSITIVOS)"<<endl;
 				cin>>OpcionPila;
 				switch (OpcionPila){
 					case 1:
 						MenuEleccionrd(p1); //numeros negativos
-						break;
+  						break;
 					case 2:
 						MenuEleccionrd(p2); //numeros positivos
 						break;
