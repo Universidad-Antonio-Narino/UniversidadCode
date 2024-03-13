@@ -20,11 +20,10 @@ class Pila{
 		int aux;
 		int estallenaP();
 	public:
-		Pila();	 //constructor
-		~Pila(); //destructor
+		Pila(); //constructor
 		void vaciaP();
 		void insertarP(float elemento) ;
-		void quitarP();
+		int quitarP();
 		int estavaciaP();
 		void imprimirPila();
 		float mayor();
@@ -34,11 +33,6 @@ class Pila{
 Pila::Pila(){ //Constructor
 	cima = -1;
 };
-Pila::~Pila(){//destructor 
-	Sleep(500);// esperar medio segundo 
-	cout << " GRACIAS POR USAR EL PROGRAMA \n";
-	Sleep(500);// esperar medio segundo 
-};
 
 void Pila::vaciaP(){
 	cima = -1;	
@@ -47,7 +41,7 @@ void Pila::vaciaP(){
 //metodo de impresión de la pila
 void Pila::imprimirPila(){
 	if(estavaciaP()) 
-		cout<<"PILA",Sleep(500)," VACIA, por favor Inserte elementos ";
+		cout<<"PILA VACIA, por favor Inserte elementos ";
 	else if(estallenaP())
 		cout<<"Pila llena, por favor elimine elementos ";
 	else{
@@ -60,7 +54,7 @@ void Pila::imprimirPila(){
 void Pila::insertarP(float _elemento){
 	if (estallenaP()){
 		cout <<"\nDesbordamiento pila\n se eliminara un elemento: \n";
-		quitarP();
+		quitarP( );
 	}
 	else{
 		cima++;
@@ -88,30 +82,37 @@ float Pila::menor(){
 	}
 	return n;
 }
+//metodo para eliminar un elemento de la pila
+int Pila::quitarP(){
+    float aux;
+    float element;
+    if (estavaciaP()){
+        cout <<"\nSe intenta sacar un elemento en pila vacía\n ingrese un elemento a la pila: \n";
+        cin>>element;
+        insertarP(element);
+    }else{
+        aux = pila[cima];
+        cout << "\nSe elimina la cima: " << aux << " -> cima: " << cima;
+        cima--;
+        return aux;
+	}
+}
 
-void Pila::quitarP(){
-	float aux;
-	float element;
-	if (estavaciaP()){
-		cout <<"\nSe intenta sacar un elemento en pila vacía\n ingrese un elemento a la pila: \n";
-		cin>>element;
-		insertarP(element);
-	}else{
-		aux = pila[cima];
-		cima--;
-		cout << "\nSe elimina la cima: " << aux << " -> cima: " << cima;
-	};
-};
-
+//metodo para determinar si la pila esta llena
 int Pila::estallenaP(){
 	return cima == MaxTamaPila - 1;	
 }
+//metodo para determinar si la pila esta vacia
 
 int Pila::estavaciaP(){
 	return cima == -1;
 }
 
-void MenuEleccionrd(Pila pila){
+void MenuEleccionrd(Pila &pila){ // siempre que tenga una funcion que reciba como parametros objeto, usar siempre apuntador &
+	/*
+	Debo poner el & debido a que si no lo coloco este
+	dara errores, esto debido a que el objeto no traera la informacion original de la misma si no que creara un nuevo objeto, pero si pasamos el parametro que recibira (caso recibe un objeto), por referencia no creara un objeto nuevo si no que por el contrario apuntara a lo que reciba como parametro, es la forma mas sencilla la cual puedo explicar.
+	*/
 	int opcionOperacion;
 	cout <<" QUE ACCION DESEA REALIZAR?"<<endl;
 	cout <<" 1)   QUITAR          ."<<endl;
@@ -140,7 +141,8 @@ void MenuEleccionrd(Pila pila){
 
 //funcion principal
 int main(){
-	Pila p1,p2;
+	Pila p1;
+	Pila p2;
 	int opcion;
 	do{
 		cout << "---Este programa muestra una pila---" << endl;
