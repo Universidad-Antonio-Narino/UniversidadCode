@@ -31,18 +31,18 @@ class Pila{
 		float menor();
 		//void imprimirP();
 		};
-    Pila::Pila(){ //Constructor
+Pila::Pila(){ //Constructor
 	cima = -1;
-                }
-    Pila::~Pila(){//destructor 
+};
+Pila::~Pila(){//destructor 
 	Sleep(500);// esperar medio segundo 
 	cout << " GRACIAS POR USAR EL PROGRAMA \n";
 	Sleep(500);// esperar medio segundo 
-}
+};
 
 void Pila::vaciaP(){
 	cima = -1;	
-}
+};
 void Pila::imprimirPila(){
 	if(estavaciaP()) 
 		cout<<"PILA",Sleep(500)," VACIA, por favor Inserte elementos ";
@@ -51,7 +51,7 @@ void Pila::imprimirPila(){
 	else
 		for(int x=cima; x>=0; x--)
 			cout<<pila[x]<<endl;
-}
+};
 
 
 void Pila::insertarP(float _elemento){
@@ -64,7 +64,7 @@ void Pila::insertarP(float _elemento){
 		pila[cima] = _elemento;
 		cout << "Se inserta la cima: " << _elemento << " -> cima: " << cima << endl;
 	}
-}
+};
 
 float Pila::mayor(){
 	float m=-1000000;
@@ -73,7 +73,7 @@ float Pila::mayor(){
 			m = pila[x];
 	}
 	return m;
-}
+};
 /*
 Esta funcion no me devuelve el mas grande
 */
@@ -84,7 +84,7 @@ float Pila::menor(){
 			n = pila[x];
 	}
 	return n;
-}
+};
 
 int Pila::quitarP(){
 	int aux;
@@ -99,15 +99,15 @@ int Pila::quitarP(){
 		cima--;
 		return aux;
 	}
-}
+};
 
 int Pila::estallenaP(){
 	return cima == MaxTamaPila - 1;	
-}
+};
 
 int Pila::estavaciaP(){
 	return cima == -1;
-}
+};
 
 void MenuEleccionrd(Pila &pila){// siempre que tenga una funcion que reciba como parametros objeto, usar siempre apuntador &
 	/*
@@ -163,8 +163,8 @@ int main(){
 			case 2:
 				int OpcionPila;
 				cout<<"Aqui puede eliminar, imprimir o ver los elementos que se encuentran dentro de cada pila. \n Pero para esto primero debe escoger a que pila desea operar. \n que pila desea escoger: "<<endl;
-				cout<<"1)   PILA 1      ."<<endl;
-				cout<<"2)   PILA 2      ."<<endl;
+				cout<<"1)   PILA 1      .(NEGATIVOS)"<<endl;
+				cout<<"2)   PILA 2      .(POSITIVOS)"<<endl;
 				cin>>OpcionPila;
 				switch (OpcionPila){
 					case 1:
