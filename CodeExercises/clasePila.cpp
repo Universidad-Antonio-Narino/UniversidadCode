@@ -1,5 +1,4 @@
 /*
-* Created by:
 * Santiago Angel
 * Santiago Moreno 
 * Nicolas Molina
@@ -9,9 +8,7 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
-
-#define MaxTamaPila 10
-
+#define MaxTamaPila 10s
 class Pila{
 	private:
 		float pila[MaxTamaPila];
@@ -37,32 +34,44 @@ Pila::Pila(){ //Constructor
 Pila::~Pila(){//destructor 
 	Sleep(500);// esperar medio segundo 
 	cout << " GRACIAS POR USAR EL PROGRAMA \n";
-	Sleep(500);// esperar medio segundo 
+	Sleep(2500);// 2 segundos y medio segundo 
 };
 
 void Pila::vaciaP(){
 	cima = -1;	
 };
 void Pila::imprimirPila(){
-	if(estavaciaP()) 
-		cout<<"PILA",Sleep(500)," VACIA, por favor Inserte elementos ";
+	if(estavaciaP()) {
+	
+		cout<<"PILA VACIA \n por favor Inserte un elementos. \n ";
+		cin.get();
+		system("cls");
+	}
 	else if(estallenaP())
-		cout<<"Pila llena, por favor elimine elementos ";
-	else
+	{
+		cout<<"PILA LLENA \n favor elimine elementos" ;
+	}
+	else{
 		for(int x=cima; x>=0; x--)
 			cout<<pila[x]<<endl;
+	}
 };
 
 
 void Pila::insertarP(float _elemento){
 	if (estallenaP()){
-		cout <<"\nDesbordamiento pila\n se eliminara un elemento: \n";
+		cout <<"!!! TENEMOS DESBORDAMIENTO EN LA PILAA!!!! eliminando cima eliminarla cima \n",Sleep(5000);
 		quitarP( );
+		cin.get();
+		system("cls");
+		cin.get();
 	}
 	else{
 		cima++;
 		pila[cima] = _elemento;
-		cout << "Se inserta la cima: " << _elemento << " -> cima: " << cima << endl;
+		cout << "Se inserta la cima: "<<_elemento<<" -> cima: "<<cima;
+		Sleep(5000);
+		system("cls");
 	}
 };
 
@@ -75,7 +84,7 @@ float Pila::mayor(){
 	return m;
 };
 /*
-Esta funcion no me devuelve el mas grande
+Eesta funcion no me devuelve el mas grande
 */
 float Pila::menor(){
 	float n=100.0;
@@ -90,14 +99,18 @@ int Pila::quitarP(){
 	int aux;
 	float element;
 	if (estavaciaP()){
-		cout <<"\nSe intenta sacar un elemento en pila vacía\n ingrese un elemento a la pila: \n";
+		cout <<"\nSe intenta sacar un elemento en pila vacia \n ingrese un elemento a la pila: \n";
 		cin>>element;
 		insertarP(element);
+		Sleep(8000);
+		system("cls");
 	}else{
 		aux = pila[cima];
-		cout << "\nSe elimina la cima: " << aux << " -> cima: " << cima;
+		cout << "\n SE ELIMINO LA CIMA: " << aux << " -> CIMA: " << cima;
 		cima--;
 		return aux;
+		Sleep(5000);
+		system("cls");
 	}
 };
 
@@ -115,11 +128,21 @@ void MenuEleccionrd(Pila &pila){// siempre que tenga una funcion que reciba como
 	dara errores, esto debido a que el objeto no traera la informacion original de la misma si no que creara un nuevo objeto, pero si pasamos el parametro que recibira (caso recibe un objeto), por referencia no creara un objeto nuevo si no que por el contrario apuntara a lo que reciba como parametro, es la forma mas sencilla la cual puedo explicar.
 	*/
 	int opcionOperacion;
-	cout <<" QUE ACCION DESEA REALIZAR?"<<endl;
-	cout <<" 1)   QUITAR          ."<<endl;
-	cout <<" 2)   MAYOR           ."<<endl;
-	cout <<" 3)   MENOR           ."<<endl;
-	cout <<" 4)   IMPRIMIR        ."<<endl;
+	
+	cout <<"-----------------------------------"<<endl;
+	Sleep(500);
+	cout <<"     QUE ACCION DESEA REALIZAR?    "<<endl;
+	Sleep(500);
+	cout <<" 1)           ~~ QUITAR ~~         "<<endl;
+	Sleep(500);
+	cout <<" 2)           ~~ MAYOR ~~          "<<endl;
+	Sleep(500);
+	cout <<" 3)           ~~ MENOR ~~          "<<endl;
+	Sleep(500);
+	cout <<" 4)          ~~ IMPRIMIR ~~        "<<endl;
+	Sleep(500);
+	cout <<"-----------------------------------"<<endl;
+	Sleep(500);
 	cin>>opcionOperacion;
 	switch (opcionOperacion)
 	{
@@ -144,12 +167,22 @@ int main(){
 	Pila p1,p2;
 	int opcion;
 	do{
-		cout << "---Este programa muestra una pila---" << endl;
-		cout << "         MENU         "<< endl;
-		cout <<" 1)   INSERTAR                ."<< endl;
-		cout <<" 2)   OPERAR PILA             ."<<endl;
-		cout <<" 3)   SALIR                   ."<<endl;	
+		cout <<"--------------------------------"<<endl;
+		Sleep(500);
+		cout <<"-Este programa muestra una pila-"<<endl;
+		Sleep(500);
+		cout <<"    ~~           MENU         ~~"<<endl;
+		Sleep(500);
+		cout <<" 1) ~~         INSERTAR       ~~"<<endl;
+		Sleep(500);
+		cout <<" 2) ~~        OPERAR PILA     ~~"<<endl;
+		Sleep(500);
+		cout <<" 3) ~~           SALIR        ~~"<<endl;
+		Sleep(500);
+		cout <<"--------------------------------"<<endl;
 		cin>>opcion;
+		Sleep(1000);
+		system("cls");
 		switch(opcion){
 			case 1:
 				float elementop;
@@ -162,10 +195,14 @@ int main(){
 				break;
 			case 2:
 				int OpcionPila;
-				cout<<"Aqui puede eliminar, imprimir o ver los elementos que se encuentran dentro de cada pila. \n Pero para esto primero debe escoger a que pila desea operar. \n que pila desea escoger: "<<endl;
-				cout<<"1)   PILA 1      .(NEGATIVOS)"<<endl;
-				cout<<"2)   PILA 2      .(POSITIVOS)"<<endl;
+				cout<<"Aqui puede ELIMINAR, IMPRIMIR o VER \n los elementos que se encuentran dentro de cada pila. \n Pero para esto primero debe escoger a que pila desea operar. \n que pila desea escoger: \n";
+				Sleep(500);
+				cout<<"1)  ** PILA 1 ** (NEGATIVOS) **"<<endl;
+				Sleep(1500);
+				cout<<"2)  ** PILA 2 ** (POSITIVOS) **"<<endl;
 				cin>>OpcionPila;
+				Sleep(2500);
+				system("cls");
 				switch (OpcionPila){
 					case 1:
 						MenuEleccionrd(p1); //numeros negativos
