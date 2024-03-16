@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstdlib>
-
+#include <windows.h>
 using namespace std;
-#define MaxTamC 100
+#define MaxTamC 10
 
 class Cola{
 	protected:
@@ -19,7 +19,11 @@ class Cola{
 		int frenteC();
 		int colavaciaC();
 		int colallenaC();
-		//void imprimirC();
+		void imprimirC();
+		float mayor();
+		float menor();
+		float promedio();
+		int espacio();//tamaño
 };		
 				
 Cola::Cola(){
@@ -30,6 +34,8 @@ final = -1;
 Cola::~Cola() //Destructor
 {
 	cout << "\nGracias por utilizar este programa. \n";
+	Sleep(5000);
+	system("cls");
 }
 // operaciones de modificaciÃ³n de la cola
 void Cola::insertarC(int _elemento){
@@ -68,7 +74,41 @@ int Cola::colavaciaC(){
 int Cola::colallenaC(){
 	return final == MaxTamC - 1;
 }
-
+void Cola::imprimirC()
+{
+        cout<<"el frente de la cola es : "<<frente<<"\n el final de la cola es:"<<final;
+	 	Sleep(1000);
+   if(colavaciaC()){
+   	    cout<<"********************* \n";
+	 	cout<<"\n LA COLA ESTA VACIA \n"; 
+	 	cout<<"********************* \n";
+	 	Sleep(4000);
+	 	cin.get();
+	 	system("cls");
+		}
+	else if(colallenaC()){}
+	    cout<<"********************* \n";
+	 	cout<<"\n LA COLA ESTA LLENA \n"; 
+	 	cout<<"********************* \n";
+	 	Sleep(4000);
+	 	cin.get();
+	 	system("cls");
+	}
+	else{
+		 cin.get();
+		 sytem("cls");
+	}
+}
+float Cola::mayor(){
+	float numYor = listaCola[0];
+	for(int inicio = 0; inicio <= final; inicio++){
+		if(listaCola[inicio] > numYor){
+			numYor = listaCola[inicio];
+		}
+		
+	}
+	
+    
 int main(){
 cout << "---Este programa muestra la implementacion de una cola lineal---" << endl;
 
