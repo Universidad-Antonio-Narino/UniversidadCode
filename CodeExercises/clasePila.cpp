@@ -8,7 +8,7 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
-#define MaxTamaPila 10s
+#define MaxTamaPila 10
 class Pila{
 	private:
 		float pila[MaxTamaPila];
