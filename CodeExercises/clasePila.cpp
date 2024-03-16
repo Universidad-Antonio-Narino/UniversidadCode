@@ -8,7 +8,11 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
+<<<<<<< HEAD
 #define MaxTamaPila 10
+=======
+#define MaxTamaPila 5
+>>>>>>> dd87f974d1dabf45ce1af7f89f73cb0cf4ab8034
 class Pila{
 	private:
 		float pila[MaxTamaPila];
@@ -60,7 +64,11 @@ void Pila::imprimirPila(){
 
 void Pila::insertarP(float _elemento){
 	if (estallenaP()){
+<<<<<<< HEAD
 		cout <<"!!! TENEMOS DESBORDAMIENTO EN LA PILAA!!!! eliminando cima eliminarla cima \n",Sleep(5000);
+=======
+		cout <<"!!! TENEMOS DESBORDAMIENTO EN LA PILAA!!!! eliminando cima eliminarla cima \n, Maximo de almacenamiento de la pila lleno",Sleep(5000);
+>>>>>>> dd87f974d1dabf45ce1af7f89f73cb0cf4ab8034
 		quitarP( );
 		cin.get();
 		system("cls");

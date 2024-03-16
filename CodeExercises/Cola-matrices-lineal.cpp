@@ -23,7 +23,7 @@ class Cola{
 		float mayor();
 		float menor();
 		float promedio();
-		int espacio();//tamaño
+		int espacio();//tamaï¿½o
 };		
 				
 Cola::Cola(){
@@ -86,7 +86,7 @@ void Cola::imprimirC()
 	 	cin.get();
 	 	system("cls");
 		}
-	else if(colallenaC()){}
+	else if(colallenaC()){
 	    cout<<"********************* \n";
 	 	cout<<"\n LA COLA ESTA LLENA \n"; 
 	 	cout<<"********************* \n";
@@ -94,46 +94,19 @@ void Cola::imprimirC()
 	 	cin.get();
 	 	system("cls");
 	}
-	else{
-		 cin.get();
-		 sytem("cls");
-	}
 }
-float Cola::mayor(){
+
+float Cola::mayor(){//probar, no estoy seguro
 	float numYor = listaCola[0];
 	for(int inicio = 0; inicio <= final; inicio++){
 		if(listaCola[inicio] > numYor){
 			numYor = listaCola[inicio];
 		}
-		
 	}
+	return numYor;
+}
 	
     
 int main(){
-cout << "---Este programa muestra la implementacion de una cola lineal---" << endl;
-
-Cola P1;
-
-P1.insertarC(5);
-//P1.imprimirC();
-P1.insertarC(6);
-//P1.imprimirC();
-P1.insertarC(3);
-//P1.imprimirC();
-//P1.insertarC(4);
-//P1.imprimirC();
-//P1.insertarC(10);
-//P1.imprimirC();
-cout <<"\n";
-
-P1.quitarC();
-//P1.imprimirC();
-P1.quitarC();
-//P1.imprimirC();
-P1.quitarC();
-//P1.imprimirC();
-
-return 0;
-//system("PAUSE");
-//return EXIT_SUCCESS;
+	cout<<"Menu en desarrollo";
 }
