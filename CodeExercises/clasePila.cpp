@@ -10,9 +10,6 @@
 using namespace std;
 <<<<<<< HEAD
 #define MaxTamaPila 10
-=======
-#define MaxTamaPila 5
->>>>>>> dd87f974d1dabf45ce1af7f89f73cb0cf4ab8034
 class Pila{
 	private:
 		float pila[MaxTamaPila];
