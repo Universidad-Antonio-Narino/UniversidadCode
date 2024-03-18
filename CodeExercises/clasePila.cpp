@@ -8,7 +8,7 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
-<<<<<<< HEAD
+
 #define MaxTamaPila 10
 class Pila{
 	private:
