@@ -47,11 +47,15 @@ void Cola::insertarC(int _elemento){
 
 int Cola::quitarC(){
 	//sig_posicion = frente++;
-	int i;
-	if (!colavaciaC()){
-		return listaCola[frente++];
-	}else
-	return colavaciaC();
+	if (colavaciaC()){
+		float element;
+		cout <<"\nSe intenta sacar un elemento en pila vacia \n ingrese un elemento a la pila: \n";
+		cin>>element;
+		insertarC(element);
+	}else{
+		//algo
+		cout<<"HOLa";
+	}
 }
 
 void Cola::borrarC(){
@@ -105,8 +109,27 @@ float Cola::mayor(){//probar, no estoy seguro
 	}
 	return numYor;
 }
+
+float Cola::menor(){
+	float numYor = listaCola[0];
+	for(int inicio = 0; inicio <= final; inicio++){
+		if(listaCola[inicio] < numYor){
+			numYor = listaCola[inicio];
+		}
+	}
+	return numYor;
+}
 	
     
 int main(){
 	cout<<"Menu en desarrollo";
-}
+	//pruebas
+	/*
+	Cola c1;
+	c1.insertarC(1);
+	c1.insertarC(2);
+	c1.insertarC(3);
+	cout<<"Numero mayor: "<<c1.mayor()<<endl;
+	cout<<"Numero Menor: "<<c1.menor();
+	*/
+};
