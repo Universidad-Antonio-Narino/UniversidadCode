@@ -60,11 +60,9 @@ void Pila::imprimirPila(){
 
 void Pila::insertarP(float _elemento){
 	if (estallenaP()){
+
 		cout <<"!!! TENEMOS DESBORDAMIENTO EN LA PILAA!!!! eliminando cima eliminarla cima \n",Sleep(5000);
 		quitarP( );
-		cin.get();
-		system("cls");
-		cin.get();
 	}
 	else{
 		cima++;

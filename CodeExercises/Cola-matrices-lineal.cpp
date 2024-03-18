@@ -57,7 +57,7 @@ int Cola::quitarC(){
 		cout<<"HOLa";
 	}
 }
-
+//metodo borrar
 void Cola::borrarC(){
 frente = 0;
 final = -1;
@@ -99,7 +99,7 @@ void Cola::imprimirC()
 	 	system("cls");
 	}
 }
-
+//metodo num Mayor
 float Cola::mayor(){//probar, no estoy seguro
 	float numYor = listaCola[0];
 	for(int inicio = 0; inicio <= final; inicio++){
