@@ -8,6 +8,10 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7f66e4ebed44d6cb70473e4efe9044e1dcace1a9
 #define MaxTamaPila 10
 class Pila{
 	private:
