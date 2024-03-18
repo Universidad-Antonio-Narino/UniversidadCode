@@ -110,3 +110,4 @@ float Cola::mayor(){//probar, no estoy seguro
 int main(){
 	cout<<"Menu en desarrollo";
 }
+//prueba escritorio
