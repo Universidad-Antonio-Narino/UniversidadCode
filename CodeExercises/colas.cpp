@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <windows.h>
 using namespace std;
-#define MaxTamC 10
+#define MaxTamC 100
 
 class Cola{
 	protected:
@@ -33,8 +33,6 @@ final = -1;
 Cola::~Cola() //Destructor
 {
 	cout << "\nGracias por utilizar este programa. \n";
-	Sleep(5000);
-	system("cls");
 }
 // operaciones de modificación de la cola
 
@@ -106,13 +104,14 @@ int Cola::quitarC(){
 		return elim;
 	}else
 	return colavaciaC();
-	}
+}
 
 //metodo de borrar todos los datos de la cola -----
 void Cola::borrarC(){
 frente = 0;
 final = -1;
 }
+
 // acceso a la cola
 /*int Cola::frenteC(){
 	if (!colavaciaC()){
@@ -131,7 +130,7 @@ int Cola::colallenaC(){
 }
 
 int main(){
-        cout << "---Este programa muestra la implementacion de una cola lineal---" << endl;
+cout << "---Este programa muestra la implementacion de una cola lineal---" << endl;
 int elemento;
 Cola P1;
 
@@ -139,17 +138,17 @@ int opcionOperacion;
 do{cout <<"-----------------------------------"<<endl;
 	Sleep(500);
 	cout <<"     QUE ACCION DESEA REALIZAR?    "<<endl;
-	Sleep(500); 
-	 	cout <<" 1)           ~~ QUITAR ~~         "<<endl;
-	 	Sleep(500);
+	Sleep(500);
+	cout <<" 1)           ~~ QUITAR ~~         "<<endl;
+	Sleep(500);
 	cout <<" 2)        ~~ MAYOR Y MENOR ~~          "<<endl;
 	Sleep(500);
 	cout <<" 3)           ~~ PROMEDIO ~~          "<<endl;
 	Sleep(500);
 	cout <<" 4)          ~~ IMPRIMIR ~~        "<<endl;
-	Sleep(500); 
-	 	cout <<" 5)          ~~ TAMAÑO ~~        "<<endl;
-	 	Sleep(500);
+	Sleep(500);
+	cout <<" 5)          ~~ TAMAÑO ~~        "<<endl;
+	Sleep(500);
 	cout <<" 6)          ~~ INSERTAR ~~        "<<endl;
 	Sleep(500);
 	cout <<" 7)          ~~ SALIR ~~        "<<endl;
