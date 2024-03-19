@@ -20,8 +20,8 @@ class Cola{
 		int colavaciaC();
 		int colallenaC();
 		void imprimirC();
-		float mayor();
-		float menor();
+		void mayor();
+		void menor();
 		float promedio();
 		int espacio();//tama�o
 };		
@@ -100,24 +100,24 @@ void Cola::imprimirC()
 	}
 }
 //metodo num Mayor
-float Cola::mayor(){//probar, no estoy seguro
+void Cola::mayor(){//probar, no estoy seguro
 	float numYor = listaCola[0];
 	for(int inicio = 0; inicio <= final; inicio++){
 		if(listaCola[inicio] > numYor){
 			numYor = listaCola[inicio];
 		}
 	}
-	return numYor;
+	cout<<"El Numero menor es: "<<numYor;
 }
 
-float Cola::menor(){
-	float numYor = listaCola[0];
+void Cola::menor(){
+	float numNor = listaCola[0];
 	for(int inicio = 0; inicio <= final; inicio++){
-		if(listaCola[inicio] < numYor){
-			numYor = listaCola[inicio];
+		if(listaCola[inicio] < numNor){
+			numNor = listaCola[inicio];
 		}
 	}
-	return numYor;
+	cout<<"El numero menor es: "<<numNor;
 }
 	
     
@@ -133,3 +133,4 @@ int main(){
 	cout<<"Numero Menor: "<<c1.menor();
 	*/
 };
+//hola
