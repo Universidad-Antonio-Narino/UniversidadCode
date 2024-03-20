@@ -105,9 +105,8 @@ void Cola::quitarC(){
 			listaCola[x]= listaCola[x+1];
 		final--;
 		cout<<"se elimino el elemento "<<elim<<" de la cola\n";
-	}
-		
-	}
+	}		
+}
 
 //metodo de borrar todos los datos de la cola -----
 void Cola::borrarC(){
