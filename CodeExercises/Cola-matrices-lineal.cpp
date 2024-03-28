@@ -14,7 +14,7 @@ class Cola{
 		Cola(); //constructor
 		~Cola(); //destructor
 		void insertarC(int elemento);
-		int quitarC();
+		void quitarC();
 		void borrarC();
 		//int frenteC();
 		int colavaciaC();
@@ -97,16 +97,17 @@ void Cola::insertarC(int _elemento){
 }
 
 //metodo de eliminar datos -----
-int Cola::quitarC(){
-	int elim = listaCola[0];
-	if (!colavaciaC()){
+void Cola::quitarC(){
+	if (colavaciaC()){
+		cout<<"la cola esta vacia";
+	}else{
+		int elim = listaCola[0];
 		for(int x=0; x<=final; x++)
 			listaCola[x]= listaCola[x+1];
 		final--;
-		return elim;
-	}else
-	return colavaciaC();
-	}
+		cout<<"se elimino el elemento "<<elim<<" de la cola\n";
+	}		
+}
 
 //metodo de borrar todos los datos de la cola -----
 void Cola::borrarC(){
@@ -121,6 +122,7 @@ final = -1;
 	return colallenaC();
 	}
 }*/
+
 // métodos de verificación del estado de la cola
 int Cola::colavaciaC(){
 	return frente > final;
@@ -131,12 +133,37 @@ int Cola::colallenaC(){
 }
 
 int main(){
-        cout << "---Este programa muestra la implementacion de una cola lineal---" << endl;
+cout << "---Este programa muestra la implementacion de una cola lineal---" << endl;
 int elemento;
-Cola P1;
-
+Cola P1;//instanciamiento del objeto
 int opcionOperacion;
-do{cout <<"-----------------------------------"<<endl;
+int op1;
+	inicio:
+	cout <<"-----------------------------------"<<endl;
+	Sleep(500);
+	cout <<"     QUE ACCION DESEA REALIZAR?    "<<endl;
+	Sleep(500); 
+	cout <<" 1)          ~~ INSERTAR ~~        "<<endl;
+	Sleep(500);
+	cout <<" 2)          ~~ SALIR ~~        "<<endl;
+	Sleep(500);
+	cout <<"-----------------------------------"<<endl;
+	Sleep(500);
+	cin>>op1;
+	if(op1==2)
+		exit(1);
+	else if(op1==1){
+		cout<<"¿QUE ELEMENTO DESEA AGREGAR A LA COLA\n ";
+		cin>>elemento;
+		P1.insertarC(elemento);	
+	}
+	else{
+		cout<<"opción no valida, vuelva a intentar";
+		goto inicio;
+	}
+
+do{
+	cout <<"-----------------------------------"<<endl;
 	Sleep(500);
 	cout <<"     QUE ACCION DESEA REALIZAR?    "<<endl;
 	Sleep(500); 
@@ -161,7 +188,8 @@ do{cout <<"-----------------------------------"<<endl;
 	switch (opcionOperacion)
 	{
 	case 1:
-		cout<<"SE ELIMINO EL ELEMENTO "<<P1.quitarC()<<" DE LA COLA"<<endl;
+		//cout<<"SE ELIMINO EL ELEMENTO "<<P1.quitarC()<<" DE LA COLA"<<endl;
+		P1.quitarC();
 		break;
 	case 2:
 		P1.mayor_menorC();
