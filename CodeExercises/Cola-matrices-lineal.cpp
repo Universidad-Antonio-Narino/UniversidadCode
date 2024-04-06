@@ -92,6 +92,7 @@ void Cola::mayor_menorC(){
 void Cola::insertarC(int _elemento){
 	if (!colallenaC()){
 		listaCola[++final] = _elemento;
+		cout<<"Se inserto el numero -> "<<_elemento;
 	}else
 	colallenaC();
 }
