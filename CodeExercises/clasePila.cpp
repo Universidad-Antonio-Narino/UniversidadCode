@@ -8,16 +8,17 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
-#define MaxTamaPila 5
+//#define MaxTamaPila 5
 class Pila{
 	private:
-		float pila[MaxTamaPila];
+		float *pila = NULL;
+		int tamanioLista;
 		int cima;
 		float elemento;
 		int aux;
 		int estallenaP();
 	public:
-		Pila();	 //constructor
+		Pila(int tamanioLista);	 //constructor
 		~Pila(); //destructor
 		void vaciaP();
 		void insertarP(float elemento) ;
@@ -28,7 +29,9 @@ class Pila{
 		float menor();
 		//void imprimirP();
 		};
-Pila::Pila(){ //Constructor
+Pila::Pila(int _tamanioLista){//Constructor
+	tamanioLista = _tamanioLista;
+	pila = new float[tamanioLista]; 
 	cima = -1;
 };
 Pila::~Pila(){//destructor 
@@ -113,7 +116,7 @@ int Pila::quitarP(){
 };
 
 int Pila::estallenaP(){
-	return cima == MaxTamaPila - 1;	
+	return cima == tamanioLista - 1;	
 };
 
 int Pila::estavaciaP(){
@@ -162,7 +165,10 @@ void MenuEleccionrd(Pila &pila){// siempre que tenga una funcion que reciba como
 };
 
 int main(){
-	Pila p1,p2;
+	int tamanioPila;
+	cout<<"Ingrese el tamaño de la pila: "<<endl;
+	cin>>tamanioPila;
+	Pila p1(tamanioPila),p2(tamanioPila);
 	int opcion;
 	do{
 		cout <<"--------------------------------"<<endl;
