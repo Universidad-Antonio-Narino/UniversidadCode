@@ -9,9 +9,14 @@ using namespace std;
 class Contrasena
 {
 private:
+<<<<<<< HEAD
    // string contrasenaa;
     char letras[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
     //string letras[26]={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y", "z"};
+=======
+   // Char contrasenia;
+    char letras[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+>>>>>>> b404d4fcb082356e4f6b1d64629db85b586df19f
 public:
     char generarmayus();
     char generarminus();
@@ -23,7 +28,11 @@ public:
 
 Contrasena::Contrasena()
 {
+<<<<<<< HEAD
 //contrasenaa="abcdefghij";
+=======
+    //contrasenaa="abcdefghij";
+>>>>>>> b404d4fcb082356e4f6b1d64629db85b586df19f
 }
 
 Contrasena::~Contrasena()
@@ -33,7 +42,13 @@ Contrasena::~Contrasena()
 
 char Contrasena::generarmayus(){
     char may;
+<<<<<<< HEAD
     may=letras[rand() % 26];
+=======
+    //devuelve un caracter aletorio de la lista de letras
+    may=letras[rand() % 26];
+    // retorno de caracter en mayuscula
+>>>>>>> b404d4fcb082356e4f6b1d64629db85b586df19f
     return toupper(may);
 }
 
@@ -55,6 +70,7 @@ char Contrasena::generarcarac(){
 
 
 int main(){
+<<<<<<< HEAD
     //string pasword="abcdefghij";
     string pasword[10];
     int l, m, s;
@@ -62,11 +78,26 @@ int main(){
     Contrasena p1;
    // cout<<p1.generarmayus()<<p1.generarminus()<<p1.generarnum()<<p1.generarcarac();
 
+=======
+    //string pasword="abcdefghij" (caso prueba);
+    string pasword[10];
+    int l, m, s;
+    //generador de numeros aletorios
+    srand(time(0));
+    Contrasena p1;
+>>>>>>> b404d4fcb082356e4f6b1d64629db85b586df19f
     //10 caracteres  == 3 ya ocupados(numero, mayuscula y especial) quedan 7 
     //  7=100%
     //normal =50%     mayuscula =15%
     //numero =20%     especial 15%
     for(int y=0; y<4; y++){
+<<<<<<< HEAD
+=======
+        /*genera un numero aletorio en el rango de 10,
+        se utilizara para guardar en un espacio aletorio cualquiera de los elementos
+        que componen la password 
+        */ 
+>>>>>>> b404d4fcb082356e4f6b1d64629db85b586df19f
         s = rand() % 10;
         if(pasword[s] == "" && y==0)
             pasword[s]=p1.generarminus();
@@ -95,7 +126,11 @@ int main(){
             goto inicio;
         }
     }
+<<<<<<< HEAD
     cout<<"your pasword asigned is: ";
+=======
+    cout<<"Su contraseña asignada es: ";
+>>>>>>> b404d4fcb082356e4f6b1d64629db85b586df19f
     for(int x=0; x<10; x++)
         cout<<pasword[x];
     
