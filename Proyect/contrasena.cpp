@@ -110,16 +110,20 @@ int main(){
         
         //fichero
         //arreglar lo de que sobreescribe
-        ofstream fich("acces.txt");
+        string stringPasswordGenerate = "";
+        ofstream fich("acces.txt",ios::app);
         if (!fich)
         {
             cout << "Error al abrir ejemplo.dat\n";
             exit(EXIT_FAILURE);
         }
         for (int i = 0; i < numDigits; ++i)
-            fich << pasword[i];
+        {
+            stringPasswordGenerate +=pasword[i];
+        };
+        fich<<stringPasswordGenerate<<endl;
 
-        cout<<endl<<"su contrasena ya se encuentra registrada en nuestro sistema\n BIENVENIDO";    
+        cout<<endl<<"su contrasena ya se encuentra registrada en nuestro sistema\n BIENVENIDO";
     } while (numDigits!=0 && numDigits!=25);
     
 
