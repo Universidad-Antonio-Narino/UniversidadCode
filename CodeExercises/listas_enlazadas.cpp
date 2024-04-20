@@ -33,14 +33,14 @@ Lista::Lista() //Constructor
 	raiz = NULL; // SIN ELEMENTOS
 }
 
-Lista::~Lista()
+Lista::~Lista()//BORRA EVERYTHING
 {
-	Nodo* recorrido = raiz;
-	Nodo* borrar;
+	Nodo* recorrido = raiz; //APUNTADOR LOCAL, Y ESTE RECORRERA TODOS LOS NODOS
+	Nodo* borrar; // BORRA EL NODO
 	while (recorrido!= NULL)
 	{
-		borrar = recorrido;
-		recorrido = recorrido->siguiente;//"RECORRIDO" ACCEDE A "SIGUIENTE"
+		borrar = recorrido; //SE MUEVE TAMBIEN CON EL RECORRIDO, ES DECIR SE UBICA EN EL PRIMER NODO
+		recorrido = recorrido->siguiente;//"RECORRIDO" ACCEDE A "SIGUIENTE", ES DECIR ME MUESTRA EL NODO SIGUIENTE
 		delete borrar;
 	}
 }
