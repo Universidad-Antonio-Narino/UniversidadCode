@@ -48,14 +48,14 @@ Lista::~Lista()//BORRA EVERYTHING
 
 int Lista::numeroNodos()
 {
-	Nodo* recorrido = raiz;
+	Nodo* recorrido = raiz; //
 	int cantidad = 0;
 	while (recorrido != NULL)
 	{
 		cantidad++;
 		recorrido = recorrido->siguiente;
 	}
-	return cantidad;
+	return cantidad;//me devuelve el len de la lista
 }
 
 void Lista::insertar(int posicion, int x)
