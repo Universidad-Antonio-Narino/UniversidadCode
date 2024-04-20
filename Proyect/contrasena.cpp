@@ -1,8 +1,10 @@
 #include<iostream>
 #include<cstdlib>
-#include <time.h> 
+#include<windows.h> 
 #include <cctype>
+#include<time.h>
 #include <fstream>
+
 
 using namespace std;
 
@@ -27,7 +29,13 @@ Contrasena::Contrasena()
 
 Contrasena::~Contrasena()
 {
-    cout << "\nGracias por utilizar este programa. \n";
+	cout<<""<<endl;
+	cout<<"*********************************************"<<endl;
+    cout<<"*    Gracias por utilizar este programa.    *"<<endl;
+    cout<<"********************************************"<<endl;
+    cout<<""<<endl;
+    cin.get();
+    system("cls");
 }
 
 char Contrasena::generarmayus(){
@@ -48,19 +56,39 @@ char Contrasena::generarnum(){
 }
 
 char Contrasena::generarcarac(){
-    char esp[10]={'*','/','+','-','@','#','$','%','&','?'};
-    return esp[rand() % 10];
+    char esp[13]={'*','/','+','-','@','#','$','%','&','?','|','!','=',};
+    return esp[rand() % 13];
 }
-
-
-
-
 int main(){
     int numDigits;
+    cout<<".....CARGANDO....."<<endl;
+    	Sleep(1500);
+    	system("cls");
+    	cout<<"....CARGANDO...."<<endl;
+    	Sleep(1500);
+    	system("cls");
+    	cout<<"...CARGANDO..."<<endl;
+    	Sleep(1500);
+    	system("cls");
+    	cout<<"..CARGANDO.."<<endl;
+    	Sleep(1500);
+    	system("cls");
+    	cout<<".CARGANDO."<<endl;
+    	Sleep(1500);
+    	system("cls");
+    	cout<<"--LISTO--"<<endl;
+    	Sleep(2500);
+    	system("cls");
     do
     {
-        cout<<"De Cuantos caracteres desea que se haga su contrasenia: ";
+    	cout<<""<<endl;
+    	cout<<"***********************************************************"<<endl;
+        cout<<"* De Cuantos caracteres desea que se haga su contrasenia: *"<<endl;
+        cout<<"***********************************************************"<<endl;
+        cout<<""<<endl;
         cin>>numDigits;
+        cin.get();
+        Sleep(2000);
         //string pasword="abcdefghij" (caso prueba);
         string pasword[numDigits];
         int l, m, s;
@@ -104,27 +132,48 @@ int main(){
                 goto inicio;
             }
         }
-        cout<<"Su contraseÃ±a asignada es: ";
+        cout<<""<<endl;
+        cout<<"***********************************************************"<<endl;
+        cout<<"*           Su contraseña asignada es:                    *"<<endl;
+        cout<<"***********************************************************"<<endl;
+        cout<<""<<endl;
         for(int x=0; x<numDigits; x++)
             cout<<pasword[x];
-        
         //fichero
         //arreglar lo de que sobreescribe
         string stringPasswordGenerate = "";
         ofstream fich("acces.txt",ios::app);
         if (!fich)
         {
-            cout << "Error al abrir ejemplo.dat\n";
+        	cout<<"\n"<<endl;
+        	cout<<""<<endl;
+		    cout<<"***********************************************************"<<endl;
+            cout <<"*              Error al abrir ejemplo.dat                *"<<endl;
+            cout<<"***********************************************************"<<endl;
+            cout<<""<<endl;
             exit(EXIT_FAILURE);
+            cin.get();
+            Sleep(2500);
         }
         for (int i = 0; i < numDigits; ++i)
         {
             stringPasswordGenerate +=pasword[i];
         };
         fich<<stringPasswordGenerate<<endl;
-
-        cout<<endl<<"su contrasena ya se encuentra registrada en nuestro sistema\n BIENVENIDO";
+        cout<<""<<endl;
+        cout<<"*****************************************************************"<<endl;
+        cout<<"*  su contrasena ya se encuentra registrada en nuestro sistema  *"<<endl;
+        cout<<"*****************************************************************"<<endl;
+        cout<<""<<endl;
+        cin.get();
+        system("cls");
+        Sleep(2000);
+        cout<<""<<endl;
+        cout<<"*******************************"<<endl;
+		cout<<"*         BIENVENIDO          *"<<endl;
+		cout<<"*******************************"<<endl;
+		cout<<""<<endl;
+		cin.get();
+		system("cls");
     } while (numDigits!=0 && numDigits!=25);
-    
-
 }
