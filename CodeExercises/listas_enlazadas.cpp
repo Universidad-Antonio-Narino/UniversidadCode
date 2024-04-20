@@ -1,4 +1,5 @@
 #include <iostream>
+// LISTAS PUEDEN TENER DATOS DE DISTINTO TIPO LOS ARREGLOS LA TIENEN DEL MISMO TIPO
 
 using namespace std;
 
@@ -17,9 +18,9 @@ public:
 	int numeroNodos();
 	void insertar(int posicion, int x);
 	int extraer(int posicion);
-	void borrar(int posicion);
-	void intercambiar(int posicion1, int posicion2);
-	bool vacia();
+	void borrar(int posicion);//BORRA EL NODO
+	void intercambiar(int posicion1, int posicion2);//LAS LISTAS PERMITEN INTERCAMBIAR NODOS DE POSICIÓN
+	bool vacia();//APUNTA SI LA LISTA ESTA VACIA
 	int mayor();
 	void imprimir();
 	int posicionMayor();
@@ -29,7 +30,7 @@ public:
 
 Lista::Lista() //Constructor
 {
-	raiz = NULL;
+	raiz = NULL; // SIN ELEMENTOS
 }
 
 Lista::~Lista()
@@ -39,7 +40,7 @@ Lista::~Lista()
 	while (recorrido!= NULL)
 	{
 		borrar = recorrido;
-		recorrido = recorrido->siguiente;
+		recorrido = recorrido->siguiente;//"RECORRIDO" ACCEDE A "SIGUIENTE"
 		delete borrar;
 	}
 }
