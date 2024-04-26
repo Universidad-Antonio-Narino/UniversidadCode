@@ -9,18 +9,27 @@ private:
 		public:
 			int info;
 			Nodo* siguiente;
+			/*
+			Apuntador de tipo nodo que apunta al siguiente nodo
+			o a null en caso de que exista otro nodo
+			*/
 		};
 
 	Nodo* raiz;
+	/*
+	Tiene una direccion del primer nodo de la lista, en caso 
+	de estar vacio apunta a null, es decir tiene la direccion
+	externo a la clase nodo, pero interno a la clase lista
+	*/
 public:
 	Lista(); //Constructor
 	~Lista(); //Destructor
 	int numeroNodos();
 	void insertar(int posicion, int x);
 	int extraer(int posicion);
-	void borrar(int posicion);//BORRA EL NODO
-	void intercambiar(int posicion1, int posicion2);//LAS LISTAS PERMITEN INTERCAMBIAR NODOS DE POSICIÓN
-	bool vacia();//APUNTA SI LA LISTA ESTA VACIA
+	void borrar(int posicion);
+	void intercambiar(int posicion1, int posicion2);
+	bool vacia();
 	int mayor();
 	void imprimir();
 	int posicionMayor();
@@ -30,7 +39,11 @@ public:
 
 Lista::Lista() //Constructor
 {
-	raiz = NULL; // SIN ELEMENTOS
+	raiz = NULL; // lista vacia 
+	/*
+	RECORDATORIO: Raiz tiene la direccion del 
+	primer nodo de la lista
+	*/
 }
 
 Lista::~Lista()//BORRA EVERYTHING
@@ -62,8 +75,10 @@ void Lista::insertar(int posicion, int x)
 {
 	if (posicion <= numeroNodos() + 1) //Cuenta cuantos nodos hay e inserta en el siguiente nodo
 	{
+		//creacion del nodo
 		Nodo* nuevo = new Nodo();
-		nuevo->info = x;
+		nuevo->info = x;// guardar el dato en el nodo
+		//al ser un operador publico se accede mediante "->"
 		cout <<"posicion-actual "<<posicion<<endl;
 		if (posicion == 1)  //Se inserta al principio de la lista
 		{
