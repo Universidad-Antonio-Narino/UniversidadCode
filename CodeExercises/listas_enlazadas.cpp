@@ -76,13 +76,13 @@ void Lista::insertar(int posicion, int x)
 	if (posicion <= numeroNodos() + 1) //Cuenta cuantos nodos hay e inserta en el siguiente nodo
 	{
 		//creacion del nodo
-		Nodo* nuevo = new Nodo();//creo el espacio y luego accedo a el
+		Nodo* nuevo = new Nodo();//creo el espacio o mejor crea un nuevo nodo
 		nuevo->info = x;// guardar el dato en el nodo
 		//al ser un operador publico se accede mediante "->"
 		cout <<"posicion-actual "<<posicion<<endl;
 		if (posicion == 1)  //Se inserta al principio de la lista
 		{
-			nuevo->siguiente = raiz;
+			nuevo->siguiente = raiz;//enlaza raiz (primer nodo) al nodo que apunta a siguiente del nodo llamado nuevo
 			raiz = nuevo;
 			
 		}
@@ -100,7 +100,7 @@ void Lista::insertar(int posicion, int x)
 			}
 			else
 			{
-				Nodo* recorrido = raiz;
+				Nodo* recorrido = raiz; //en el medio
 				for (int f = 1; f <= posicion-1; f++)
 				{
 					
