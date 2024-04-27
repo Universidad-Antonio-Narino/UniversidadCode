@@ -76,7 +76,7 @@ void Lista::insertar(int posicion, int x)
 	if (posicion <= numeroNodos() + 1) //Cuenta cuantos nodos hay e inserta en el siguiente nodo
 	{
 		//creacion del nodo
-		Nodo* nuevo = new Nodo();
+		Nodo* nuevo = new Nodo();//creo el espacio y luego accedo a el
 		nuevo->info = x;// guardar el dato en el nodo
 		//al ser un operador publico se accede mediante "->"
 		cout <<"posicion-actual "<<posicion<<endl;
