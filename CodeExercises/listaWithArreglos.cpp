@@ -96,6 +96,7 @@ class List{
 
         int count(int elementToSearch){
             cout<<"In progress...";
+            int a =elementToSearch;
         }
 
         int len(){
