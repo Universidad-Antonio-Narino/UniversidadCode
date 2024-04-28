@@ -8,14 +8,16 @@ primero nos piden contruir cada metodo
 - append (agrega un elemento a la vez, ese parametro de este metodo)
 - clear (elimina todos los elementos de la lista, por ende no recibe parametros)
 - extend (recibira una lista de elementos como parametro, ese sera su unico parametro)
-- count (recibe como parametro un valor a buscar, y retornara cuantas veces aparece en el array original)(buscar una manera eficiente para que no se valla a o(n)), para el aburrimiento y la eficiencia del programa utilizaremos busqueda binarias ;)
+- count (recibe como parametro un valor a buscar, y retornara cuantas veces aparece en el array original)(buscar una manera eficiente para que no se valla a o(n!)), para el aburrimiento y la eficiencia del programa utilizaremos busqueda binarias, esto por si llegan a existir demasiados datos para buscar ;)
 - index ()
-- reverse
-- len
+- reverse()
+- len()
+
 to do
 - Append y clase : Terminados y funcionando
 - Clear : Terminados y funcionando
-- extend
+- extend: Terminados y funcionando
+- Len : Terminados y funcionando 
 */
 
 class List{

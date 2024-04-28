@@ -12,6 +12,7 @@ print(arr)
 arr.append(3)
 arr1.clear()
 arr.count(2)
+arr.reverse()
 for k in range(0,100):
     formula = int((k**2)+k)
     if formula % 2 == 0:
