@@ -94,9 +94,12 @@ class List{
         en python
         */
 
+        void sort(){
+            //una manera de ordenar cada elemento es para nuestro caso 
+        }
+
         int count(int elementToSearch){
             cout<<"In progress...";
-            int a =elementToSearch;
         }
 
         int len(){
