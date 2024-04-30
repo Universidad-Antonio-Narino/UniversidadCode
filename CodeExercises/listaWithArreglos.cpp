@@ -1,4 +1,4 @@
-#include<iostream>
+	#include<iostream>
 using namespace std;
 
 //Creacion de listas con arreglos
@@ -80,7 +80,7 @@ class List{
                 IndexAuxiliarList++;
             }
             
-            //imprimir ista
+            //imprimir lista
             for(int i = 0; i < sizeExtendedList;i++){
                 cout<<"Posicion: "<<i+1<<" -> "<<*(extendedList+i)<<endl;
             }
@@ -94,8 +94,31 @@ class List{
         en python
         */
 
+
+		/*
+		for i in range(0,len(lista)):
+    	for j in range(i+1,len(lista)):
+        	if lista[i] > lista[j]:
+            	auxVar = lista[i]
+            	lista[i] = lista[j]
+            	lista[j] = auxVar
+		print(lista)
+		
+		*/
         void sort(){
             //una manera de ordenar cada elemento es para nuestro caso 
+            //selection sort
+            int auxVar;
+            for(int i = 0;i<size;i++){
+            	for(int j = i+1;j<size;j++){
+            		if(*(lista+i)>*(lista+j)){
+						auxVar =lista[i];
+						lista[i] = lista[j];
+						lista[j] = auxVar;
+					}
+				}
+				
+			}
         }
 
         int count(int elementToSearch){
@@ -109,14 +132,16 @@ class List{
 };
 
 int main(){
-    List list, list2;
+    List list, list2,list3;
+    /*
     list.append(1000);
     list.append(200);
     list.append(12);
-    list2.append(1);
-    list2.append(2);
-    list2.append(3);
+    list2.append(7);
+    list2.append(6);
+    list2.append(8);
     list2.append(300);
+    list2.append(1);
     //list.imprimir();
     list.extend(list2);
     cout<<"Tamaño lista 1: "<<list.len()<<endl;
@@ -124,7 +149,15 @@ int main(){
     //eliminacion
     list.clear();
     list2.clear();
-
+	*/
+	int dato;
+	for(int i = 0;i<5;i++){
+		cout<<"Ingreso de datos: ";
+		cin>>dato;
+		list3.append(dato);
+	}
+	list3.sort();	
+	list3.imprimir();
     cout<<"Tamaño lista 1: "<<list.len()<<endl;
     cout<<"Tamaño lista 2: "<<list2.len()<<endl;
     //list.imprimir();
