@@ -17,3 +17,6 @@ def binarySearch(listaOrdenada:list,numToSearch:int):
 
 newLista = sortList(lista)
 binarySearch(newLista)
+#inicio simpre 0
+#mitad mitad de lista
+#final ultimo dato
