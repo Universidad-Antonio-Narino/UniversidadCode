@@ -51,9 +51,12 @@ class List{
 
         // para verificar que si imprime //intento 1000 :)
         void imprimir(){
+            cout<<"[";
             for(int i = 0;i<size;i++){
-                cout<<*(lista+i)<<endl;
+                if(i!=size-1) cout<<*(lista+i)<<",";
+                else cout<<*(lista+i);
             }
+            cout<<"]";
         }
 
         int getDato(int index){
@@ -85,28 +88,9 @@ class List{
                 cout<<"Posicion: "<<i+1<<" -> "<<*(extendedList+i)<<endl;
             }
         }
-        /*
-        No lo hemos visto pero utilizare un algoritmo de busqueda de elementos 
-        en este caso me facilitara la busqueda de un elemento, el algoritmo que 
-        usare es el de busqueda binaria.
-        voy a comentar cada linea porque despues se me olvida, no la utilizo 
-        demasiado, la utilize dos veces si no menos en algunos proyectos propios
-        en python
-        */
-
-
-		/*
-		for i in range(0,len(lista)):
-    	for j in range(i+1,len(lista)):
-        	if lista[i] > lista[j]:
-            	auxVar = lista[i]
-            	lista[i] = lista[j]
-            	lista[j] = auxVar
-		print(lista)
-		
-		*/
+        
         void sort(){
-            //una manera de ordenar cada elemento es para nuestro caso 
+            //una manera de ordenar cada elemento es para nuestro caso es mas facil y mas eficiente que un ordenamiento lineal
             //selection sort
             int auxVar;
             for(int i = 0;i<size;i++){
@@ -122,7 +106,13 @@ class List{
         }
 
         int count(int elementToSearch){
-            cout<<"In progress...";
+            int numTimesArray = 0;
+            for(int i = 0;i<size;i++){
+                if(elementToSearch == lista[i]){
+                    numTimesArray++;
+                }
+            }
+            return numTimesArray;
         }
 
         int len(){
@@ -133,35 +123,34 @@ class List{
 
 int main(){
     List list, list2,list3;
-    /*
+    //lista #1
     list.append(1000);
     list.append(200);
     list.append(12);
+    list.append(200);
+    list.append(1);
+    list.append(100);
+    //lista #2
     list2.append(7);
+    list2.append(6);
     list2.append(6);
     list2.append(8);
     list2.append(300);
     list2.append(1);
-    //list.imprimir();
-    list.extend(list2);
-    cout<<"Tamaño lista 1: "<<list.len()<<endl;
-    cout<<"Tamaño lista 2: "<<list2.len()<<endl;
-    //eliminacion
-    list.clear();
-    list2.clear();
-	*/
-	int dato;
-	for(int i = 0;i<5;i++){
-		cout<<"Ingreso de datos: ";
-		cin>>dato;
-		list3.append(dato);
-	}
-	list3.sort();	
-	list3.imprimir();
-    cout<<"Tamaño lista 1: "<<list.len()<<endl;
-    cout<<"Tamaño lista 2: "<<list2.len()<<endl;
-    //list.imprimir();
-}
+
+    //acciones
+	list2.sort();
+    list2.imprimir();
+    cout<<"\n";
+    list.sort();
+    list.imprimir();
+    cout<<"\n";
+    cout<<list2.count(6)<<endl;
+    cout<<list.count(200);
+
+    
+
+};
 
 
 //retornando multiples valores
