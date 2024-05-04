@@ -9,9 +9,9 @@ primero nos piden contruir cada metodo
 - clear (elimina todos los elementos de la lista, por ende no recibe parametros)
 - extend (recibira una lista de elementos como parametro, ese sera su unico parametro)
 - count (recibe como parametro un valor a buscar, y retornara cuantas veces aparece en el array original)(buscar una manera eficiente para que no se valla a o(n!)), para el aburrimiento y la eficiencia del programa utilizaremos busqueda binarias, esto por si llegan a existir demasiados datos para buscar ;)
-- index ()
-- reverse()
-- len()
+- index () : se refiere generalmente a la posición o ubicación de un elemento dentro de una estructura de datos, como un array o una lista. En C++
+- reverse() : se refiere al acto de cambiar el orden de los elementos en una secuencia de datos, como una cadena de caracteres, una lista, un array o cualquier otra estructura de datos.
+- len() : En C++, no existe una función len() como en Python para obtener la longitud de una cadena de caracteres o un contenedor como un array o un vector. 
 
 to do
 - Append y clase : Terminados y funcionando
@@ -19,7 +19,8 @@ to do
 - extend: Terminados y funcionando
 - Len : Terminados y funcionando 
 */
-
+//todo esto es desarrollado por el grupo pero debemos anotar las definiciones, todas las pruebas estan en https://github.com/Universidad-Antonio-Narino/UniversidadCode.git
+//commits de cada version subida :=)
 class List{
     private:
         int *lista;
