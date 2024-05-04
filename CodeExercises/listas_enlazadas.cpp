@@ -61,7 +61,7 @@ Lista::~Lista()//BORRA EVERYTHING
 
 int Lista::numeroNodos()
 {
-	Nodo* recorrido = raiz; //
+	Nodo* recorrido = raiz; //raiz tiene la direccion de memoria de la raiz
 	int cantidad = 0;
 	while (recorrido != NULL)
 	{
