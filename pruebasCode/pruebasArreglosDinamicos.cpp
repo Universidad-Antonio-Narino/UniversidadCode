@@ -2,45 +2,85 @@
 
 using namespace std;
 
+/*
+hacer:
+append()
+clear()
+extend()
+count()
+index()
+reverse()
+len()
+*/
 class Lista{
     private:
         int size;
-        int *list;
-        int espacio = 0;
+        int *lista;
+        int *listaAux;
     public:
-        Lista(int _size){
-            size = _size;
-            list = new int[size];
+        Lista(){
+            size = 0;
+            lista = new int[size];
         }
     
         void append(int elemento){
-            /*
-            list[espacio] = elemento;
-            quiero hacerlo con espacios autoañadidos
-            if(espacio == size){
-                int *listAuxiliar = new int[size+1];
-                for(int i = 0; i<size;i++){
-                    *(listAuxiliar+i)= list[i];
-                }
-                delete[] list;
-                //listAuxiliar[size+1] = elemento;
-                *(listAuxiliar+(size)) = elemento;
-                list = listAuxiliar; 
-            }else{
-                list[espacio] = elemento;
-                espacio++;
-                size++;
+            listaAux = new int[size+1];
+            for (int i = 0; i<size;i++){
+                *(listaAux+i) = *(lista+i);
             }
-            */
-            list[espacio] = elemento;
-            espacio++;
+            *(listaAux+size) = elemento;
+            delete[] lista;
+            lista = listaAux;
             size++;
+        }
+
+        void clear(){
+            delete[] lista;
+        }
+        int getDato(int index){
+            return lista[index];
+        }
+        void extend(Lista &lista2){
+            int sizeOtherList = lista2.size;
+            int *extendedList = new int[size+sizeOtherList];
+            for (int i = 0; i < size; i++)
+            {
+                *(extendedList+i) =  *(lista+i);
+            }
+            for (int i = 0; i<sizeOtherList;i++){
+                *(extendedList+(size+i)) = lista2.getDato(i);
+            }
+            cout<<"[";
+            for(int i = 0;i<size;i++){
+                if(i!=size-1) 
+                    cout<<lista[i]<<",";
+                else cout<<lista[i];
+            }
+            cout<<"]";
+            delete[] extendedList;
             
         }
+
+        int count(int elementoBuscar){
+            
+        }
+        int index(){
+
+        }
+        void reverse(){
+
+        }
+        int len(){
+
+        }
         void imprimir(){
-            for(int i= 0;i<size-1;i++){//-1 porque el size esta en uno mas del elemnto que voy a agregar, tengo un espacio de mas
-                cout<<*(list+i)<<endl;
+            cout<<"[";
+            for(int i = 0;i<size;i++){
+                if(i!=size-1) 
+                    cout<<lista[i]<<",";
+                else cout<<lista[i];
             }
+            cout<<"]";
         }
 };
 
