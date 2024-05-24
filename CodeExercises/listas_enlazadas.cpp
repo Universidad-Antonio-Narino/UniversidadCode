@@ -293,35 +293,39 @@ bool Lista::existe(int x)
 
 int main()
 { 
-	double numero;
+
+	//double numero;
 	cout << "Programa para mostrar listas enlazadas \n";
-	Lista* lista = new Lista(); //Crea el objeto lista de manera dinámica, se utiliza un apuntador lista de tipo Lista
+	Lista* lista = new Lista(); //Crea el}objeto lista de manera dinámica, se utiliza un apuntador lista de tipo Lista
+	cout<<lista->numeroNodos();
 	lista->insertar(1, 1);
 	lista->imprimir();
 	lista->insertar(2, 2);
 	lista->imprimir();
-	lista->insertar(3, 3);
+	lista->insertar(2, 3);
 	lista->imprimir();
-	lista->insertar(4, 4);
+	lista->insertar(3, 4);
 	lista->imprimir();
 	lista->insertar(3, 10);
+	lista->imprimir();
+	lista->insertar(4,5);
 	lista->imprimir();
     /*
     if (lista->ordenada())
 		cout << "\nLa lista esta ordenada de menor a mayor\n";
 	else
 		cout << "\nLa lista no esta ordenada de menor a mayor\n";
-	*/
 	
 	//cout << "\nLuego de Borrar el primero\n";
 	lista->extraer(1);
 	lista->imprimir();
-	
 	lista->borrar(1);
+	
 	lista->imprimir();
 	//cout << "\nLuego de Extraer el segundo\n";
 	//lista->extraer(2);
 	//lista->imprimir();
+	*/
 	/*
 	cout << "\nLuego de Intercambiar el primero con el tercero\n";
 	lista->intercambiar(1, 3);
@@ -340,5 +344,5 @@ int main()
 	
 	delete lista;
 	*/
-	return 0;
+	//return 0;
 }
