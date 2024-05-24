@@ -13,9 +13,10 @@ class Lista{
         int cantidadNodos = 0;
     public:
         Lista(){
-            raiz =NULL;
+            raiz =NULL;// lista enlazada vacia
         } //Constructor
 	    ~Lista(); //Destructor
+        
         void insertarPenultimaUltima(int x){
             Nodo *nuevo = new Nodo(); //creacion del nodo
             nuevo->dato = x;//guarda el dato en la posicion
