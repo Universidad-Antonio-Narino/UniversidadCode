@@ -84,11 +84,20 @@ int main(){
     lista->imprimir();
     lista->insertarPenultimaUltima(4);
     lista->imprimir();
-    //lista->insertarPenultimaUltima(5);
-    //lista->imprimir();
+    lista->insertarPenultimaUltima(5);
+    lista->imprimir();
+    lista->insertarPenultimaUltima(6);
+    lista->imprimir();
+    lista->insertarPenultimaUltima(7);
+    lista->imprimir();
+    lista->insertarPenultimaUltima(8);
+    lista->imprimir();
+    lista->insertarPenultimaUltima(9);
+    lista->imprimir();
+    lista->insertarPenultimaUltima(10);
+    lista->imprimir();
     lista->borrarPenultimaP();
     lista->imprimir();
-
     lista->borrarPenultimaP();
     lista->imprimir();
 }
