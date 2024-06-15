@@ -2,89 +2,81 @@
 
 using namespace std;
 
-
-class ListaEnlazada{
+class List{
     private:
         class Nodo{
             public:
-                int dato;
-                Nodo* siguiente;
+                float dato;
+                Nodo* next;
         };
         Nodo* raiz;
         int cantidadNodos;
     public:
-        ListaEnlazada(){
+        List(){
             raiz = NULL;
             cantidadNodos = 0;
         }
 
-        void insertar(int datoX){
+        void insertar(int datoIngre){
             Nodo* nuevo = new Nodo();
-            nuevo->dato = datoX;
-            if(cantidadNodos<=1){
-                nuevo->siguiente = raiz;
+            Nodo* recorrido = raiz;
+            nuevo->dato = datoIngre;
+            if(cantidadNodos <= 1){
+                nuevo->next = raiz;
                 raiz = nuevo;
                 cantidadNodos++;
-            }else{
-                Nodo* recorrido = raiz;
-                for(int i = 1; i<=cantidadNodos-1;i++){
+            }
+            else{
+                for(int i = 1; i <= cantidadNodos-1;i++){
                     if(i>1){
-                        recorrido=recorrido->siguiente;
+                        recorrido = recorrido->next;
                     }
                 }
-                Nodo* aux = recorrido->siguiente;
-                recorrido->siguiente = nuevo;
-                nuevo->siguiente = aux;
+                Nodo* auxNodo = recorrido->next;
+                recorrido->next = nuevo;
+                nuevo->next = auxNodo;
                 cantidadNodos++;
             }
         }
 
-        void borrar(){
-            Nodo* borrar;
-            Nodo* recorrido = raiz;
-            if(cantidadNodos==1){
-                borrar = raiz;
-                raiz = NULL;
-                cantidadNodos--;
-            }
-            else if (cantidadNodos == 2)
-            {
-                borrar = raiz;
-                raiz = borrar->siguiente;
-            }else{
-                for (int i = 1; i < cantidadNodos-1; i++)
-                {
-                    if(i > 1){
-                        recorrido=recorrido->siguiente;
-                    }
-                }
-                Nodo* auxBorrado = recorrido->siguiente;
-                recorrido->siguiente = auxBorrado->siguiente;
-                borrar = auxBorrado;
-                cantidadNodos--;
-            }
-            delete borrar;
-        }
+        void borrar();
 
         void imprimir(){
             Nodo* recorrido = raiz;
-            for(int i = 1; i<=cantidadNodos;i++){
+            for (int i = 0;i < cantidadNodos; i++){
                 cout<<recorrido->dato<<"-";
-                recorrido = recorrido->siguiente;
+                recorrido = recorrido->next;
             }
         }
-
 };
+
+
 int main(){
-    ListaEnlazada* lista = new ListaEnlazada();
-    lista->insertar(1);
-    lista->insertar(2);
-    lista->insertar(3);
-    lista->insertar(4);
-    lista->insertar(5);
-    lista->insertar(6);
-    lista->imprimir();
-    cout<<endl;
-    lista->borrar();
-    lista->imprimir();
+    List* lista = new List();
+    int opcion;
+    while (opcion != 4)
+    {
+        cout<<"Menu: "<<endl;
+        cout<<"1. Insertar dato "<<endl;
+        cout<<"2. Borrar dato "<<endl;
+        cout<<"3. Imprimir "<<endl;
+        cout<<"4. Salir "<<endl;
+        cout<<"Elija una opcion "<<endl;
+        cin>>opcion;
+        switch (opcion)
+        {
+        case 1:
+            int dato;
+            cout<<"Ingrese el dato que desea guardar: ";
+            cin>>dato;
+            lista->insertar(dato);
+            break;
+        case 3:
+            lista->imprimir();
+            cout<<endl;
+            break;     
+        default:
+            break;
+        }
+    }
 }
