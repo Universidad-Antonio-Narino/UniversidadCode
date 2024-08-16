@@ -1,5 +1,13 @@
+#####CREACION ALFABETO######
+
+"""
+Para este programa se nos planteaba crear el alfabeto de todas las cadenas de 
+palabras que se crearan dado un conjnto de simbolos inicial, dividimos la entrada inicial
+"""
+
 alfabeto = input().split(" ")
 sucesiones = int(input())
+
 
 def generated_language(alfabeto:list,iter:int):
     aux = alfabeto.copy()
@@ -13,6 +21,5 @@ def generated_language(alfabeto:list,iter:int):
                 cadena += i+alfabeto[j]
                 aux.append(cadena)
                 cadena = ""
-    #aux[len(alfabeto):]
     return aux
 print(generated_language(alfabeto,sucesiones))
