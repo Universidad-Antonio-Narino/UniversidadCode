@@ -30,4 +30,3 @@ class Extraction_sub_strings:
         store = list()
         store.append(character)
 
-    
