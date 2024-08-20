@@ -1,0 +1,7 @@
+1. obtener los administrativos y empleados que vivan en lacaze.
+σ ciudad = 'Juan Lacaze' (empleados)
+2.  Obtener Nombre y Codigo de los administrativos 
+π nombre,codigo (σ edad < 20 and edad >=29)(Admistrativo)
+3. π telefono (σ edad = edad > 18) (admin-encargados)
+4. π codigo,nombre,edad (σ ciudad = "Rosario" or "Valdense")(admin)
+5. π codigo, nombre, ciudad (not σ ciudad = "Tarariras")

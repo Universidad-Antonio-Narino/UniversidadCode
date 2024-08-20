@@ -1,0 +1,27 @@
+ALGEBRA REALACIONAL - SELECCION: Permite obtener las tuplas que cumplen cierta condicion
+σ< condición > (< relación >) donde: condición es una condición lógica sobre valores de los atributos de las tuplas resultado.
+relación es una relación o expresión relacional.
+Ejemplos:
+- σ APELLIDO=GONZALEZ (EMPLEADO)
+- σ Salario>3000 (EMPLEADO)
+- σ APELLIDO=GONZALEZ and (EMPLEADO)
+Salario>3000
+- σ not (APELLIDO=GONZALEZ (EMPLEADO)
+ and Salario>3000)
+
+ALGEBRA REALACIONAL - PROYECCION: Permite obtener las tuplas con un cierto conjunto de atributos. 
+π <lista_atributos> (<relación>) donde:
+lista_atributos es una lista de atributos a aparecer en la relación resultado.
+relación es una relación o expresión relacional.
+Proyección (π).
+Sea R una relación.
+π A1 ,. . . , An (R) da como resultado otra relación: con esquema (A1,...,An) con tuplas formadas a partir de las de R,
+tomando los valores para los atributos A1,...,An.
+- Observación:
+Como no se admiten tuplas repetidas, al realizar una proyección, podrían quedar menos tuplas que en la relación de partida.
+
+ALGEBRA RELACIONAL - UNION: Permite obtener la Unión de dos relaciones
+tomadas como conjuntos de tuplas.
+(<relación>) U (<relación>)
+donde:
+relación es una relación o expresión relacional.

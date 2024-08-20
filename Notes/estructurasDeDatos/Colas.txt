@@ -1,0 +1,32 @@
+Esta tipo de dato tiene una propiedad especifica, denominada fifo (firts-in, firts-out)
+1) Este nombre se deriva de la metafora de una cola de personas en una taquilla.
+2) El elemento con mas tiempo en la cola es el que puede ser extraido.
+* Retroceso. Consiste en mantener fijo a uno el valor de frente, realizando un
+desplazamiento de una posición para todas las componentes ocupadas cada
+vez que se efectúa una supresión.
+
+* Reestructuración. Cuando final llega al máximo de elementos, se desplazan
+las componentes ocupadas hacia atrás las posiciones necesarias para que el
+principio coincida con la primera posición del array.
+
+* Mediante un array circular. Un array circular es aquél en el que se considera
+que la primera posición sigue a la última
+
+insertarC(push): Insertar un dato en la pila.
+quitarC(pop): Sacar (quitar) un dato de la pila.
+borrarC(delete): Vacía la cola.
+frenteC(): Devuelve el elemento de la primera posición
+colavaciaC: Comprobar si la cola no tiene elementos.
+colallenaC(): Comprobar si la cola está llena de elementos.*
+
+
+Esta implementación de una cola es notablemente ineficiente, se puede alcanzar
+la condición de cola llena habiendo posiciones del array sin ocupar. Esto es
+debido a que al realizar la operación quitar avanza el frente, y, por consiguiente,
+
+las posiciones anteriores quedan desocupadas, no accesibles.
+
+Nota: Una solución a este problema consiste en que al retirar un elemento,
+frente no se incremente y se desplace el resto de elementos una posición a la
+
+izquierda.

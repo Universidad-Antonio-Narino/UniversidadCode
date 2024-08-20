@@ -1,0 +1,19 @@
+##Componentes
+
+Atributo: representa propiedades que tiene el componente
+"entidades son representadas con un rectangulo"
+"Atributos se representaran con ovalos"
+"los nombres vienen en mayuscula, estos no es puden repetir, es una caracteristica de el modelo identidad relacion"
+"como estandar los atributos iran en mayuscula"
+"LLave primaria es un objeto que sera unico e irrepetible"
+"Como distingo entre todos lo ovalos mi llave primaria, para representar llaves primarias en un modelo utilizo guion bajo"
+"Se puede contar con atributos compuestos, donde informacion importante pueda ideicarse como unica"
+"Atributos multivalor: el atributo pude tener una gran cantidad de valores"
+"Cardinaladida indica la asociacion de esa relacion: 1 to n, 1 to 1, 1 to n o n to 1, n to n"
+"puedo incluir atributos dentro de una relacion"
+entidades: empresa, clientes,producto, provedores
+atributos cliente: Nombre,apellido cedula, direccion y fecha de nacimiento
+atributos producto: Nombre,codigo y precio
+atributos provedores: rut, nombre direccion
+Relacion: Entre cliente y productos existe una relacion de 1 a n 
+para el producto la relacion es suministrar

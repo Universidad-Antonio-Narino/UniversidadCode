@@ -1,0 +1,38 @@
+Objeto = cosas que se abstraen del mundo real
+clase = plantilla donde se manejaran los datos
+herencia->Cada objeto puede acceder a los metodos de las clases hijas.
+Clase -> Abstracion que se hace de la experiencia de la realidad, y su funcion
+es describir propiedades genericas.
+
+PROYECTOS:
+Cifrado y banco
+
+06/03/2024
+PILAS
+Es una estructura de datos que cumplen la condicion de:
+Los elementos se añaden o quitan (borran) de la misma solo por su parte superior
+(cima) de la pila.
+logo de las pilas "Ultimo en entrar, primero en salir"
+LIFO(Last in, last out)
+
+
+Cuando esta vacia la cima y el fondo son iguales.
+
+La manera en que se almacenaran los datos, se puede definir con la analogia de cargar un cargador con balas
+la primera bala en entrar es la ultima en salir, y la ultima bala en entrar es la primera.
+
+-Si el fondo y la cima estan tienen el mismo valor entonces se puede concluir que la pila esta vacia y por ende si esta esta vacia puedo hacer la operacion de añadir o insertar datos.
+
+-Cuando es vacio, el vacio se representa con un valor de -1.
+
+-Si fondo y cima son iguales, es decir si es el tamaño del arreglo -1 y en el caso es -1 (cima para el caso de que este vacio es  -1) entonces 
+se puede definir como vacia.
+
+OPERACIONES PARA LAS PILAS
+VaciaP:    Crea una pila vacia.
+InsertarP(push):  Insertar datos.
+quitarP (pop):   Sacar (quitar) un dato de la pila.
+estavaciaP:  Comprobar si la pila no tiene elementos.
+estallenaP():  Comprobar si la pila está llena de elementos.
+
+

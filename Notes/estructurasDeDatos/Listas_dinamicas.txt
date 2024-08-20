@@ -1,0 +1,43 @@
+<<<<<<< HEAD
+Para la creacion de estas listas dinamicas se utiliza o "listas o nodos", esto en el caso de c++.
+Para el caso tambien se utilizara un apuntador, donde servira para el acceso a la memoria, este apuntador (&) 
+me traera la direccion de memoria del objeto.
+Se utilizaran las listas enlazadaas, las doblemenete enalzadas y las circulares. ***important-estructuras dinamicas***
+=======
+>>>>>>> 18125019e6b7bd854c598016392123128fb22c83
+El tema de dinamico se debe a la creacion en memoria de ese lugar.
+Se quita el elemento para la liberacion de espacio en memoria.
+Este nodo necesitara un apuntador para inidcar el espacio en memoria, y en ese nodo guardara el numero, 
+y asi sucesivamente, pero para enlazar cada nodo tambien necesitare un apuntador.
+Para el caso de Anterior tanto para el metodo de añadir como el de unir los nodos es necesario utilizar 
+apuntadores.
+clase 3/040/2024
+PUNTEROS
+Mejorar el programa de pilas y colas para que el arreglo sea dinamico **important
+& : Me obtiene la direccion de la variable
+<<<<<<< HEAD
+OPERADOR DE INDIRECCION : -> este tipo de dato cumple la misma funcion del apuntador(*)
+
+=======
+OPERADOR DE INDIRECCION : - > 
+>>>>>>> 18125019e6b7bd854c598016392123128fb22c83
+null->vacio->no tiene tipo de dato
+Puntero void ->se utiliza para intercambiar las variables debido que no tiene un tipo de dato especificado
+Caracteristicas:
+- Un puntero nulo no direcciona ningun dato valido
+- Para declarar un puntero nulo utiliza la macro null
+- Un puntero void direcc
+
+
+Crear un progrma que su tamaño sea dinamico
+
+
+5/04/2024
+LISTAS CON ARREGLOS
+Las listas siempre podran guardar en si en 3 posiciones al inicio, final e intermedio.(esto para el caso insertar, la cual recibira dos parametros, pos y elemento)
+El metodo eliminar tendra como parametro la pos del nodo actual, y este debe asegurarse de que este lleno o vacio.
+
+4/18/2024
+DEFINICIONES DE LISTA
+Las listas enlazadas son: 
+- cadenas de elementos que están conectados uno tras otro. Cada elemento contiene dos partes: el dato que queremos guardar y una referencia al siguiente elemento en la lista.

@@ -1,0 +1,42 @@
+seleccion de dos o mas tablas
+select campo from tabla1,tabala2 where tabla1.id = tabla2.id
+
+USOS JOIN
+--> seleccionar o consultar todos los elementos de a
+Select <select_list> from tableA A left join tableB B on A.key = B.key
+// tableA A una manera de poner alias en este caso el alias es A
+
+--> seleccionar o consultar todos los elementos de b
+Select <select_list> from tableA A right join tableB B on A.key = B.key
+
+--> seleccionnar los valores que estan tanto en a como en b
+Select <select_list> from tableA A inner join tableB B on A.key = B.key 
+
+--> selecciona los elementos de a que no comparta con b
+Select <select_list> from tableA A left join tableB B on A.key = B.key where B.key is null
+
+-->selecciona los elementos de b que no comparta con a
+Select <select_list> from tableA A right join tableB B on A.key = B.key where B.key is null
+
+--> selecciona todos los elementos tanto de a como de b
+Select <select_list> from tableA A full outer join tableB B on A.key = B.KEY
+
+--> selecciona todos los elementos tanto de a como de b sin incluir los elementos de a y b que comparten
+Select <select_list> from tableA A full outer join tableB B on A.key is null or B.KEY is null
+
+
+
+(aqui hay mas tipo de consultas)
+CONSULTAS CON SUBCONSULTAS
+SELECT last_name from employees where salary > (select salary from employees where last_name ILIKE 'ABEL');//ESTO TRAERA LAS PERSONAS CON APELLIDO NO SEAN ABEL Y QUE GANEN MAS DE 11000
+
+OPERADORES SET (FORMA DE ACTUALIZAR)
+UPDATE ALUNMO SET edad = edad+1 where id = 122; 
+UPDATE ALUNMO SET edad = edad+1 where name = 'brenda'; 
+
+ORDENAMIENTO
+select campos from nombre_table order by campo
+CRUD DATABASE
+Create = insert into ciudad(nombre,poblacion) values("alguna ciudad","alguna poblacion")
+update = update juegos set copias = 20 where copias = 12
+delete = delete from algo
