@@ -14,7 +14,7 @@ class tablasMultiplicar {
             for (int multipl = 1; multipl < 11; multipl++) {
                 String linea="";
                 for (int numsTable = indentations; numsTable < indentations+3; numsTable++) {
-                    if (numsTable<numberRestriction) {
+                    if (numsTable>numberRestriction) {
                         linea += "\t-x-=-\t";
                     }else{
                         linea +="\t"+numsTable+"x"+multipl+"="+numsTable*multipl+"\t";
