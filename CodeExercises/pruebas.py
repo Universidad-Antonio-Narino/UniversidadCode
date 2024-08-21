@@ -1,14 +1,17 @@
-
-
-
-def imprimir_tablas_cuadrado():
-    print("".center(30,"-"))
-    for j in range(0,9,3):
-        for i in range(1,11):
-            print(f"{j+1}x{i}={(j+1)*i}\t{j+2}x{i}={(j+2)*i}\t{j+3}x{i}={(j+3)*i}")
-        print("".center(30,"-"))
-            
-
-
-
-imprimir_tablas_cuadrado()
+"""
+for i in range(3,12,3):
+    #print(i," -> ",min(i + 2, 9))
+    
+    print("\n")
+"""
+numberRestriccion = int(input(": "))
+for identations in range(1,9,3):
+    for multipli in range(1,11):
+        linea = ""
+        for tabla in range(identations,identations+3):
+            if(tabla<numberRestriccion):
+                linea += "\t-x-=-\t"
+            else:
+                linea += f"\t{tabla}x{multipli}={tabla*multipli}\t"
+        print(linea)
+    print("".center(len(linea)*2,"-"))
