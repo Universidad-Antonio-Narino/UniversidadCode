@@ -1,17 +1,14 @@
-"""
-for i in range(3,12,3):
-    #print(i," -> ",min(i + 2, 9))
-    
-    print("\n")
-"""
-numberRestriccion = int(input(": "))
-for identations in range(1,9,3):
-    for multipli in range(1,11):
-        linea = ""
-        for tabla in range(identations,identations+3):
-            if(tabla<numberRestriccion):
-                linea += "\t-x-=-\t"
-            else:
-                linea += f"\t{tabla}x{multipli}={tabla*multipli}\t"
-        print(linea)
-    print("".center(len(linea)*2,"-"))
+cadena ="hello"
+sigma_estrella = list()
+def creator_substring(cadena):
+    if 1 == len(cadena) or len(cadena) == 0:
+        if len(cadena) == 1:
+            sigma_estrella.append(cadena)
+        return 
+    else:
+        for i in range(len(cadena),0,-1):
+            sigma_estrella.append(cadena[:i])
+        cadena=cadena[1:len(cadena)]
+        creator_substring(cadena)
+print(creator_substring(cadena))
+print(sigma_estrella)
