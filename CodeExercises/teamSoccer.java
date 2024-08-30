@@ -3,6 +3,7 @@ public class Main
 {
 	public static void main(String[] args) {
 		Random rand = new Random();
-		S
+		int[5] teamOne;
+		int team = rand.nextInt(2);
 	}
 }
