@@ -2,8 +2,10 @@ import java.util.Random;
 public class Main
 {
 	public static void main(String[] args) {
-	    int SumaEquipoOne = 0;
-	    int SumaEquipoTwo = 0;
+		//VARIABLES DE SUMA PARA EL MARCADOR DE LOS DOS EQUIPOS
+	    	int SumaEquipoOne = 0;
+	    	int SumaEquipoTwo = 0;
+		//array de los dos equipos
 		int[] Partido =new int[10];
 		Random rand = new Random();
 		for(int j = 0;j<10;j++){
