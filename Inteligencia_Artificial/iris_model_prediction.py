@@ -3,7 +3,7 @@ import sklearn as skl
 import sklearn.datasets as dataInfo
 #print(skl.__version__) version
 from sklearn.model_selection import train_test_split
-
+from sklearn.svm import SVC
 
 dataset = dataInfo.load_iris()
 
@@ -21,3 +21,8 @@ Y = dataset.target
 
 # Realizamos la partición de nuestro dataset en un conjunto de entrenamiento y otro de test (20%)
 X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size = 0.2,random_state =42)
+
+classifier = SVC(kernel="linear",C = 0.025)
+
+classifier.fit(X_train,Y_train)
+print(classifier.score(X_test,Y_test))
