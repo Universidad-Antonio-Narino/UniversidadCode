@@ -46,8 +46,9 @@ public class BancoBbc {
         UsuariosCliente[0][7] = "1000000";
 
         Integer[] numKeyWord = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        String EmailAdmin = "admin";// adminBBC@bbc.com.co
-        String PasswordAdmin = "123";// 123456Admin
+        String EmailAdmin = "admin";// adminBBC@bbc.com.co email asesor
+        String PasswordAdmin = "123";// 123456Admin clave asesor
+        //numero de iteraciones que me permitira salir del programa si asi lo solicito
         Boolean numIter = true;
         // Entrada de dos tipos asesor o cliente o para el caso de terminar el programa
         // salir
@@ -55,7 +56,7 @@ public class BancoBbc {
         int numClient = 1;
         // while que permite que el programa se siga ejecutando
         do {
-            System.out.println("Ingrese el perfil con el que desea acceder (asesor o cliente): ");
+            System.out.println("Ingrese el perfil con el que desea acceder (asesor o cliente o salir): ");
             Scanner input = new Scanner(System.in);
             inputAccount = input.nextLine();
             switch (inputAccount.toUpperCase()) {
