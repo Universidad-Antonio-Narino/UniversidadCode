@@ -47,10 +47,15 @@ string_To_Analyze_Regex = int(input())#Ingresa el valor como un entero
 #analisis de la cadena
 def Regex_Analise(String_To_Analyze):
     string_To_Analyze_Regex = str(String_To_Analyze) #conversion
-    if int(string_To_Analyze_Regex[:3])== 123:
-        if int(string_To_Analyze_Regex[len(string_To_Analyze_Regex)-3:])==321:
-            return "ACEPTA"
-    else:
+    if len(string_To_Analyze_Regex) <6:
         return "RECHAZA"
+    else:
+        if int(string_To_Analyze_Regex[:3])== 123:
+            if int(string_To_Analyze_Regex[len(string_To_Analyze_Regex)-3:])==321:
+                return "ACEPTA"
+            else:
+                return "RECHAZA"
+        else:
+            return "RECHAZA"
 
 print(Regex_Analise(string_To_Analyze_Regex))
