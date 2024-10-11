@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) {
 
-        String email = "usuariogmail.com";
+        String email = "uSuario@gmail.com";
         
         // Expresión regular corregida
-        Pattern pattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@[gmail|hotmail|yahoo|outlook]+\\.[com]{3}$", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@(gmail|hotmail|yahoo|outlook)\\.(com|co|gov)$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         
         if (matcher.matches()) {

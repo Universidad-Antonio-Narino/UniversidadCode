@@ -18,7 +18,13 @@ public class Main {
         // poblar la clase
         client.setName(name);
         client.setLastName(lastName);
+        keyword.nextLine();
         client.setCorreo(email);
+        while (client.getCorreo() == null){
+            System.out.println("Ingrese su Email: ");
+            email = keyword.nextLine();
+            client.setCorreo(email);
+        }
         client.setCedula(cedula);
 
         // mesero

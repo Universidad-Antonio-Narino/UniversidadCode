@@ -1,5 +1,7 @@
 package com.restaurantpizza;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 public class Cliente {
     private String name;
     private String lastName;
@@ -37,6 +39,13 @@ public class Cliente {
         return correo;
     }
     public void setCorreo(String correo) {
-        this.correo = correo;
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@(gmail|hotmail|yahoo|outlook)\\.(com|co|gov)$",Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(correo);
+        if(matcher.matches()){
+            this.correo = correo;
+        }
+        else{
+            System.out.println("Formato de correo incorrecto");
+        }
     }
 }

@@ -97,6 +97,11 @@ public class Factura {
                 Apellido: %s
                 cedula: %d
                 Email: %s
+                Datos del pedido: 
+                Fecha: %s
+                Pedido de Mesa: %d
+                Nombre Mesero: %s %s
+                Menu
                 """;
         return String.format(infoClass,getCliente().getName(),getCliente().getLastName(),getCliente().getCedula(),getCliente().getCorreo()) ;
     }
