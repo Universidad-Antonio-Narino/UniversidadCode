@@ -6,28 +6,27 @@ public class Main {
     public static void main(String[] args) {
         Mesero waiter = new Mesero();
         Cliente client = new Cliente();
-        /*
-         * 
-         Scanner keyword = new Scanner(System.in);
-         System.out.println("Ingrese el nombre: ");
-         String name = keyword.nextLine();
-         System.out.println("Ingrese el apellido: ");
-         String lastName = keyword.nextLine();
-         System.out.println("Ingrese su Email: ");
-         String email = keyword.nextLine();
-         
-         //poblar la clase
-         client.setName(name);
-         client.setLastName(lastName);
+        Scanner keyword = new Scanner(System.in);
+        System.out.println("Ingrese el nombre: ");
+        String name = keyword.nextLine();
+        System.out.println("Ingrese el apellido: ");
+        String lastName = keyword.nextLine();
+        System.out.println("Ingrese su Email: ");
+        String email = keyword.nextLine();
+        System.out.println("Ingrese su cedula: ");
+        int cedula = keyword.nextInt();
+        // poblar la clase
+        client.setName(name);
+        client.setLastName(lastName);
         client.setCorreo(email);
-        
-        //mesero
+        client.setCedula(cedula);
+
+        // mesero
         System.out.println("Ingrese el nombre del mesero: ");
         String nameWaiter = keyword.nextLine();
         waiter.setName(nameWaiter);
-        */
-        
-        //productos
+
+        // productos
         Producto producto1 = new Producto();
         producto1.setNameProduct("pizza-pequeña");
         producto1.setValor(6000);
@@ -63,13 +62,30 @@ public class Main {
         combos[2] = producto3;
         combos[3] = producto4;
         combos[4] = producto5;
-        for (Producto producto : combos) {
-            System.out.println(producto);
-        }
+        // muestra que la info ya fue guardada
+        /*
+         * 
+         * for (Producto producto : combos) {
+         * System.out.println(producto);
+         * }
+         */
+
         // forma 1 de estraer sin que me envia su referencia de memoria de la class
         menuDia.setProducto(combos);
         for (Producto eleProducto : menuDia.getProducto()) {
             System.out.println(eleProducto);
         }
+
+        Pedido pedido1 = new Pedido();
+        pedido1.setDate("10-11-2024");
+        pedido1.setMesero(waiter);
+        pedido1.setTable(1);
+        pedido1.setProductos(menuDia);
+
+        Factura factura1 = new Factura();
+        factura1.setCliente(client);
+        factura1.setPropina(true);
+        factura1.setValorPropina(10000);
+        System.out.println(factura1);
     }
 }

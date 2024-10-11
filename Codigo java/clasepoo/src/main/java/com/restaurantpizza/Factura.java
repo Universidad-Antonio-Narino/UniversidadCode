@@ -11,7 +11,8 @@ public class Factura {
 
     //metodos propios
     private void calcularImpoConsumo(){
-        impoConsumo = total*0.08;
+        double impustoConsumo = getTotal()*0.08;
+        setImpoConsumo(impustoConsumo);
     }
 
     private void calcularIva(){
@@ -84,5 +85,19 @@ public class Factura {
 
     public void setValorPropina(int valorPropina) {
         this.valorPropina = valorPropina;
+    }
+
+    @Override 
+    public String toString() {
+        String infoClass = """
+                \t Restaurante  pizzeria \t
+                \t\t factura de compra \t\t
+                Datos Cliente:
+                Nombre: %s
+                Apellido: %s
+                cedula: %d
+                Email: %s
+                """;
+        return String.format(infoClass,getCliente().getName(),getCliente().getLastName(),getCliente().getCedula(),getCliente().getCorreo()) ;
     }
 }
