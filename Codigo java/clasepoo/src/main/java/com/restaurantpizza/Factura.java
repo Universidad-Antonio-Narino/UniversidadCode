@@ -43,7 +43,7 @@ public class Factura {
         return detalle;
     }
 
-    private void setDetalle(Pedido detalle) {
+    public void setDetalle(Pedido detalle) {
         this.detalle = detalle;
     }
 
@@ -103,6 +103,6 @@ public class Factura {
                 Nombre Mesero: %s %s
                 Menu
                 """;
-        return String.format(infoClass,getCliente().getName(),getCliente().getLastName(),getCliente().getCedula(),getCliente().getCorreo()) ;
+        return String.format(infoClass,getCliente().getName(),getCliente().getLastName(),getCliente().getCedula(),getCliente().getCorreo(),getDetalle().getDate(),getDetalle().getTable(),getDetalle().getMesero().getName(),getDetalle().getMesero().getLastName()) ;
     }
 }

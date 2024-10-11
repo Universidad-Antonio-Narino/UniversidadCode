@@ -31,6 +31,7 @@ public class Main {
         System.out.println("Ingrese el nombre del mesero: ");
         String nameWaiter = keyword.nextLine();
         waiter.setName(nameWaiter);
+        waiter.setLastName("pedruño");
 
         // productos
         Producto producto1 = new Producto();
@@ -92,6 +93,7 @@ public class Main {
         factura1.setCliente(client);
         factura1.setPropina(true);
         factura1.setValorPropina(10000);
+        factura1.setDetalle(pedido1);
         System.out.println(factura1);
     }
 }
