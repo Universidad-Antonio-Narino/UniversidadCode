@@ -1,6 +1,7 @@
 package com.restaurantpizza;
 
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,11 +32,11 @@ public class Main {
         System.out.println("Ingrese el nombre del mesero: ");
         String nameWaiter = keyword.nextLine();
         waiter.setName(nameWaiter);
-        waiter.setLastName("pedruño");
+        waiter.setLastName("pedruÃ±o");
 
         // productos
         Producto producto1 = new Producto();
-        producto1.setNameProduct("pizza-pequeña");
+        producto1.setNameProduct("pizza-pequeÃ±a");
         producto1.setValor(6000);
         producto1.setTipoProducto(TipoProducto.FUERTE);
 
@@ -58,17 +59,78 @@ public class Main {
         producto5.setNameProduct("pastel de agraz");
         producto5.setValor(16000);
         producto5.setTipoProducto(TipoProducto.POSTRE);
+        
+        // Producto 1
+        Producto producto6 = new Producto();
+        producto6.setNameProduct("sándwich-club");
+        producto6.setValor(7000);
+        producto6.setTipoProducto(TipoProducto.FUERTE);
 
-        Menu menuDia = new Menu();
+        // Producto 2
+        Producto producto7 = new Producto();
+        producto7.setNameProduct("pizza-grande");
+        producto7.setValor(12000);
+        producto7.setTipoProducto(TipoProducto.FUERTE);
 
-        menuDia.setName("menu combo todo en uno");
-        menuDia.setPrize(45000);
-        Producto[] combos = new Producto[5];
-        combos[0] = producto1;
-        combos[1] = producto2;
-        combos[2] = producto3;
-        combos[3] = producto4;
-        combos[4] = producto5;
+        // Producto 3
+        Producto producto8 = new Producto();
+        producto8.setNameProduct("limonada");
+        producto8.setValor(3000);
+        producto8.setTipoProducto(TipoProducto.BEBIDA);
+
+        // Producto 4
+        Producto producto9 = new Producto();
+        producto9.setNameProduct("croquetas-de-pollo");
+        producto9.setValor(4500);
+        producto9.setTipoProducto(TipoProducto.ACOMPANAMIENTO);
+
+        // Producto 5
+        Producto producto10 = new Producto();
+        producto10.setNameProduct("mozzarella-sticks");
+        producto10.setValor(5000);
+        producto10.setTipoProducto(TipoProducto.POSTRE);
+
+        // Producto 6
+        Producto producto11 = new Producto();
+        producto11.setNameProduct("cheesecake-de-fresa");
+        producto11.setValor(5500);
+        producto11.setTipoProducto(TipoProducto.POSTRE);
+
+        // Producto 7
+        Producto producto12 = new Producto();
+        producto12.setNameProduct("té-frío");
+        producto12.setValor(2500);
+        producto12.setTipoProducto(TipoProducto.BEBIDA);
+        
+
+        Menu[] menuDia = new Menu[2];
+
+        menuDia[0].setName("menu combo todo en uno");
+        menuDia[0].setPrize(45000);
+        
+        menuDia[1].setName("Felicidades");
+        menuDia[1].setPrize(50000);
+        
+        
+        Producto[] combos1 = new Producto[5];
+        combos1[0] = producto1;
+        combos1[1] = producto2;
+        combos1[2] = producto3;
+        combos1[3] = producto4;
+        combos1[4] = producto5;
+        
+        Producto[] combos2 = new Producto[5];
+        combos2[0]=producto6;
+        combos2[1]=producto7;
+        combos2[2]=producto8;
+        combos2[3]=producto9;
+        combos2[4]=producto10;
+        
+        Producto[] combos3 = new Producto[2];
+        combos3[0]=producto11;
+        combos3[1]=producto12;
+  
+
         // muestra que la info ya fue guardada
         /*
          * 
@@ -78,10 +140,16 @@ public class Main {
          */
 
         // forma 1 de estraer sin que me envia su referencia de memoria de la class
-        menuDia.setProducto(combos);
-        for (Producto eleProducto : menuDia.getProducto()) {
-            System.out.println(eleProducto);
+        menuDia[0].setProducto(combos1);
+        menuDia[1].setProducto(combos2);
+        menuDia[2].setProducto(combos3);
+        
+        for(int i = 0;i<3;i++){
+            for (Producto eleProducto : menuDia[i].getProducto()) {
+                System.out.println(eleProducto);
+            }
         }
+        
 
         Pedido pedido1 = new Pedido();
         pedido1.setDate("10-11-2024");
