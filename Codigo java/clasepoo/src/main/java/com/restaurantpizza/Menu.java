@@ -1,32 +1,42 @@
 package com.restaurantpizza;
 
+import java.util.ArrayList;
 
-public class Menu {
-    private String name;
-    private int prize;
-    private Producto[] producto;
-
-    public String getName() {
-        return name;
+public class Pedido {
+    private String date;
+    private int table;
+    private Mesero mesero;
+    private Menu[] productos;
+    
+    public String getDate() {
+        return date;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public int getPrize() {
-        return prize;
+    public int getTable() {
+        return table;
     }
 
-    public void setPrize(int prize) {
-        this.prize = prize;
+    public void setTable(int table) {
+        this.table = table;
     }
 
-    public Producto[] getProducto() {
-        return producto;
+    public Mesero getMesero() {
+        return mesero;
     }
 
-    public void setProducto(Producto[] producto) {
-        this.producto = producto;
+    public void setMesero(Mesero mesero) {
+        this.mesero = mesero;
+    }
+
+    public Menu[] getProductos() {
+        return productos;
+    }
+
+    public void setProductos(Menu[] productosE) {
+        this.productos=productosE;
     }
 }
