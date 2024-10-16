@@ -1,10 +1,10 @@
 package com.restaurantpizza;
 
 import java.util.Scanner;
-import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+        
         Mesero waiter = new Mesero();
         Cliente client = new Cliente();
         Scanner keyword = new Scanner(System.in);
@@ -27,12 +27,13 @@ public class Main {
             client.setCorreo(email);
         }
         client.setCedula(cedula);
-
+        
         // mesero
         System.out.println("Ingrese el nombre del mesero: ");
         String nameWaiter = keyword.nextLine();
         waiter.setName(nameWaiter);
         waiter.setLastName("pedruÃ±o");
+
 
         // productos
         Producto producto1 = new Producto();
@@ -103,14 +104,19 @@ public class Main {
         producto12.setTipoProducto(TipoProducto.BEBIDA);
         
 
-        Menu[] menuDia = new Menu[2];
+        Menu[] menuDia = new Menu[3];
 
-        menuDia[0].setName("menu combo todo en uno");
-        menuDia[0].setPrize(45000);
+        menuDia[0] = new Menu();
+        menuDia[0].setNombre("Buenos dias");
+        menuDia[0].setPrecio(45000);
+
+        menuDia[1] = new Menu();
+        menuDia[1].setNombre("Felicidades");
+        menuDia[1].setPrecio(50000);
         
-        menuDia[1].setName("Felicidades");
-        menuDia[1].setPrize(50000);
-        
+        menuDia[2] = new Menu();
+        menuDia[2].setNombre("Felicidades mañaneras");
+        menuDia[2].setPrecio(100000);
         
         Producto[] combos1 = new Producto[5];
         combos1[0] = producto1;
@@ -143,12 +149,14 @@ public class Main {
         menuDia[0].setProducto(combos1);
         menuDia[1].setProducto(combos2);
         menuDia[2].setProducto(combos3);
-        
-        for(int i = 0;i<3;i++){
+        /*
+         * 
+         for(int i = 0;i<3;i++){
             for (Producto eleProducto : menuDia[i].getProducto()) {
                 System.out.println(eleProducto);
             }
         }
+        */
         
 
         Pedido pedido1 = new Pedido();
@@ -162,6 +170,7 @@ public class Main {
         factura1.setPropina(true);
         factura1.setValorPropina(10000);
         factura1.setDetalle(pedido1);
-        System.out.println(factura1);
+        String formatFactura = "\t\t Restaurante  pizzeria \t\t \n Datos Cliente:\r\n nombre: %s\r\n Apellido: %s\r\n cedula: %d\r\n Email: %s\r\n Datos del pedido: \r\n Fecha: %s\r\n Pedido de Mesa: %d\r\n Nombre Mesero: %s %s\r\n Menu";
+        System.out.println(String.format(formatFactura,factura1.getCliente().getName(),factura1.getCliente().getLastName(),factura1.getCliente().getCedula(),factura1.getCliente().getCorreo(),factura1.getDetalle().getDate(),factura1.getDetalle().getTable(),factura1.getDetalle().getMesero().getName(),factura1.getDetalle().getMesero().getLastName()));
     }
 }

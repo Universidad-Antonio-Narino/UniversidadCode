@@ -6,7 +6,7 @@ public class Pedido {
     private String date;
     private int table;
     private Mesero mesero;
-    private ArrayList<Menu> productos = new ArrayList<>();
+    private Menu[] productMenu;
     
     public String getDate() {
         return date;
@@ -32,11 +32,11 @@ public class Pedido {
         this.mesero = mesero;
     }
 
-    public ArrayList<Menu> getProductos() {
-        return productos;
+    public Menu[] getProductos() {
+        return productMenu;
     }
 
-    public void setProductos(Menu productosE) {
-        this.productos.add(productosE);
+    public void setProductos(Menu[] productosE) {
+        this.productMenu=productosE;
     }
 }

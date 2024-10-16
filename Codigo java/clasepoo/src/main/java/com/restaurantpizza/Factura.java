@@ -21,7 +21,7 @@ public class Factura {
 
     private void calcularTotal(){
         for (Menu menu : detalle.getProductos()) {
-           total += menu.getPrize();
+           total += menu.getPrecio();
         }
         calcularImpoConsumo();
         calcularIva();
@@ -86,23 +86,26 @@ public class Factura {
     public void setValorPropina(int valorPropina) {
         this.valorPropina = valorPropina;
     }
-
-    @Override 
-    public String toString() {
+    //sobreescritura aun no vista
+    /*
+     * 
+     @Override 
+     public String toString() {
         String infoClass = """
-                \t Restaurante  pizzeria \t
-                \t\t factura de compra \t\t
-                Datos Cliente:
-                Nombre: %s
-                Apellido: %s
-                cedula: %d
-                Email: %s
-                Datos del pedido: 
-                Fecha: %s
-                Pedido de Mesa: %d
-                Nombre Mesero: %s %s
-                Menu
-                """;
-        return String.format(infoClass,getCliente().getName(),getCliente().getLastName(),getCliente().getCedula(),getCliente().getCorreo(),getDetalle().getDate(),getDetalle().getTable(),getDetalle().getMesero().getName(),getDetalle().getMesero().getLastName()) ;
-    }
+            \t Restaurante  pizzeria \t
+            \t\t factura de compra \t\t
+            Datos Cliente:
+            Nombre: %s
+            Apellido: %s
+            cedula: %d
+            Email: %s
+            Datos del pedido: 
+            Fecha: %s
+            Pedido de Mesa: %d
+            Nombre Mesero: %s %s
+            Menu
+            """;
+            return String.format(infoClass,getCliente().getName(),getCliente().getLastName(),getCliente().getCedula(),getCliente().getCorreo(),getDetalle().getDate(),getDetalle().getTable(),getDetalle().getMesero().getName(),getDetalle().getMesero().getLastName()) ;
+        }
+    */
 }
