@@ -4,6 +4,7 @@
  */
 package com.viajaRapido;
 import java.util.Scanner;
+
 /**
  *
  * @author SALA G
@@ -73,7 +74,16 @@ public class Main {
         Ruta[] ruta = new Ruta[3];
         ruta[0] =new Ruta();
         ruta[0].setCodRuta(0);
-        ruta[0].setDestino(ciudad[0].getNombre());
+        ruta[0].setOrigen(ciudad[1]);
+        ruta[0].setDestino(ciudad[0]);
+        ruta[0].setDuracion(90);
+        ruta[0].setPrecio(80000);
+        ruta[1] = new Ruta();
+        ruta[1].setCodRuta(2);
+        ruta[1];
+        ruta[1];
+        ruta[1];
+        ruta[1]; 
         //crear el ticket
     }
     
