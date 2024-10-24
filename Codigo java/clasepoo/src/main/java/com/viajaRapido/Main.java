@@ -1,3 +1,8 @@
+package com.viajaRapido;
+
+import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Main {
 
@@ -100,7 +105,7 @@ public class Main {
 
         Ticket ticketTres = new Ticket();
         ticketTres.setBus(busDos);
-        ticketTres.setId(2);
+        ticketTres.setId(3);
         ticketTres.setRuta(rutaCosta);
 
         Cliente clienteTres = new Cliente();
@@ -129,17 +134,35 @@ public class Main {
         ticketsDia[1] = ticketDos;
         ticketsDia[2] = ticketTres;
 
+        System.out.println("\n\n\n\n");
+        
+        //preguntar cantidad de tikects a comprar
+        for (Ticket ticket : ticketsDia) {
+            String infoPreguntas = "Cuantos tickets desea comprar para la %s?";
+            System.out.println(String.format(infoPreguntas,ticket.getRuta().getNombreRuta()));
+            System.out.println("Ingrese la cantidad: ");
+            int cantidadTickets = sc.nextInt();
+            ticket.setCantidadPasajes(cantidadTickets);
+        }
+
+        //verificacion info guardada
+        /*
+        for (Ticket ticket : ticketsDia) {
+            System.out.println(ticket);
+        }
+        */
+
         ventaDia.setTicket(ticketsDia);
         Ticket[] tiquete = ventaDia.getTicket();
         double dato = ventaDia.imprimirVentas(tiquete);
-        System.out.println("Las ventas del dia fueron: $" + ventaDia.getTotal());
+        System.out.println("El total de ventas del dia fueron: $" + ventaDia.getTotal());
 
         // Solicitar por consola la cantidad de tickets que el cliente va a comprar
         // implementar metodos de la clase venta
         //calcular iva
         //calcularSubtotal
         //calcular total
-        System.out.println("Ingrese la cantidad de tikects");
         
 
     }
+}
