@@ -8,7 +8,9 @@ public class Ticket {
     private int sillaEscogida;
     private Bus bus;
     private Cliente cliente;
-
+    private int id;
+    private int cantidadPasajes;
+    
     public String getFecha() {
         return fecha;
     }
@@ -47,5 +49,30 @@ public class Ticket {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the cantidadPasajes
+     */
+    public int getCantidadPasajes() {
+        return cantidadPasajes;
+    }
+
+    /**
+     * @param cantidadPasajes the cantidadPasajes to set
+     */
+    public void setCantidadPasajes(int cantidadPasajes) {
+        this.cantidadPasajes = cantidadPasajes;
     }
 }
