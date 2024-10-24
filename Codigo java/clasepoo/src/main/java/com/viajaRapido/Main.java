@@ -1,3 +1,4 @@
+
 public class Main {
 
     /**
@@ -140,7 +141,5 @@ public class Main {
         //calcular total
         System.out.println("Ingrese la cantidad de tikects");
         
-        int opcion = sc.nextInt();
-       
 
     }
