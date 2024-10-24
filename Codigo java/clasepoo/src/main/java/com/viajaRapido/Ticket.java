@@ -1,51 +1,91 @@
 package com.viajaRapido;
 
-public class Ticket {
-    private String fecha;
-    private Ruta ruta;
-    //Ya esta en ruta
-    //private int precio
-    private int sillaEscogida;
-    private Bus bus;
-    private Cliente cliente;
+public class Ventas {
 
-    public String getFecha() {
-        return fecha;
+    private Empresa empresa;
+    private Ticket[] ticket;
+    private double total;
+
+    /**
+     * @return the empresa
+     */
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    /**
+     * @param empresa the empresa to set
+     */
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 
-    public Ruta getRuta() {
-        return ruta;
+    /**
+     * @return the ticket
+     */
+    public Ticket[] getTicket() {
+        return ticket;
     }
 
-    public void setRuta(Ruta ruta) {
-        this.ruta = ruta;
+    /**
+     * @param ticket the ticket to set
+     */
+    public void setTicket(Ticket[] ticket) {
+        this.ticket = ticket;
     }
 
-    public int getSillaEscogida() {
-        return sillaEscogida;
+    /**
+     * @return the total
+     */
+    public double getTotal() {
+        return total;
     }
 
-    public void setSillaEscogida(int sillaEscogida) {
-        this.sillaEscogida = sillaEscogida;
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(int total) {
+        this.total = total;
     }
 
-    public Bus getBus() {
-        return bus;
-    }
+    // Para calcular el total de las ventas se debe obtener
+    // el valor de venta de cada Tickete
+    // Se envia a este método el array de ticketes
+    private double calcularTotal(Ticket[] ticket) {
+        double totalVentasDia = 0;
+        int ciclo = this.ticket.length;
+        System.out.println("Ciclos: " + ciclo);
+        Ticket[] ticketsVendidos = new Ticket[ciclo];
 
-    public void setBus(Bus bus) {
-        this.bus = bus;
-    }
+        for (int i = 0; i < ciclo; i++) {
+            ticketsVendidos[i] = getTicket()[i];
+            totalVentasDia += ticketsVendidos[i].getRuta().getPrecio()*ticketsVendidos[i].getCantidadPasajes();
+            System.out.println("Ruta: " + ticketsVendidos[i].getRuta().getNombreRuta() + " - Valor: $" + ticketsVendidos[i].getRuta().getPrecio());
+        }
 
-    public Cliente getCliente() {
-        return cliente;
+        this.total = totalVentasDia;
+        return totalVentasDia;
     }
+    
+    public double subtotal(){
+        double totalVentasDia = 0;
+        int ciclo = this.ticket.length;
+        System.out.println("Ciclos: " + ciclo);
+        Ticket[] ticketsVendidos = new Ticket[ciclo];
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+        for (int i = 0; i < ciclo; i++) {
+            ticketsVendidos[i] = getTicket()[i];
+            totalVentasDia += ticketsVendidos[i].getRuta().getPrecio()*ticketsVendidos[i].getCantidadPasajes();
+            System.out.println("Ruta: " + ticketsVendidos[i].getRuta().getNombreRuta() + " - Valor: $" + ticketsVendidos[i].getRuta().getPrecio());
+        }
+
+        this.total = totalVentasDia;
+        return totalVentasDia;
+    }
+    
+    public double imprimirVentas(Ticket[] ticket){
+        
+        double totalesDia = calcularTotal(ticket);                        
+        return totalesDia;
     }
 }
