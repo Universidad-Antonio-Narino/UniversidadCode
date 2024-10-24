@@ -1,10 +1,20 @@
 package com.viajaRapido;
 
-public class Ventas {
+public class Ticket {
+    private String fecha;
+    private Ruta ruta;
+    //Ya esta en ruta
+    //private int precio
+    private int sillaEscogida;
+    private Bus bus;
+    private Cliente cliente;
+    private int id;
+    private int cantidadPasajes;
+    
+    public String getFecha() {
+        return fecha;
+    }
 
-    private Empresa empresa;
-    private Ticket[] ticket;
-    private double total;
 
     /**
      * @return the empresa
@@ -87,5 +97,30 @@ public class Ventas {
         
         double totalesDia = calcularTotal(ticket);                        
         return totalesDia;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the cantidadPasajes
+     */
+    public int getCantidadPasajes() {
+        return cantidadPasajes;
+    }
+
+    /**
+     * @param cantidadPasajes the cantidadPasajes to set
+     */
+    public void setCantidadPasajes(int cantidadPasajes) {
+        this.cantidadPasajes = cantidadPasajes;
     }
 }
