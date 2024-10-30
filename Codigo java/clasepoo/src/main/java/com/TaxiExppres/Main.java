@@ -100,11 +100,16 @@ public class Main {
                                 int opcionInicioViaje = keyword.nextInt();
                                 Factura factura = new Factura();
                                 if (opcionInicioViaje == 1) {
-                                    servicio.inicioViaje();
-                                    factura.setCliente(clienteLogueado);
-                                    factura.setVehiculo(vehiculoEscogido);
-                                    factura.setDetalleVenta(servicios.toArray(new Servicio[0]));
-                                    factura.generarFactura();
+                                    if (servicio.getVehiculo().tanqueVacio()) {
+                                        servicio.inicioViaje();
+                                    }
+                                    else{
+                                        servicio.inicioViaje();
+                                        factura.setCliente(clienteLogueado);
+                                        factura.setVehiculo(vehiculoEscogido);
+                                        factura.setDetalleVenta(servicios.toArray(new Servicio[0]));
+                                        factura.generarFactura();
+                                    }
                                 }
                                 break;
                             case 2:
