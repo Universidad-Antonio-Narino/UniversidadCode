@@ -46,7 +46,9 @@ public class Plataforma {
         setUsuariosRegistrados(clienteNuevo);
     }
 
-    public void login(){
+    public Cliente login(){
+        Cliente clienteResulta = new Cliente();
+
         Scanner keyword = new Scanner(System.in);
         System.out.println("Ingrese su correo: ");
         String correo = keyword.nextLine();
@@ -58,6 +60,7 @@ public class Plataforma {
                     isRegistered = true;
                     cliente.setIsLogin(true);
                     System.out.println("Bienvenido al sistema señor/a: "+cliente.getName()+" "+cliente.getLastName());
+                    clienteResulta = cliente;
                 }
                 else{
                     break;
@@ -69,21 +72,10 @@ public class Plataforma {
             System.out.println(intentos);
             System.out.println("Alguno de los datos ingresados son incorrectos, intente de nuevo");
             login();
+        }if (intentos == 3) {
+            System.out.println("Usted no se encuentra registrado o el numero de intentes supero los 3, para poder accder debe registrarse");
         }
-        if (!isRegistered) {
-            System.out.println("Su correo no existe desea registrarse");
-            System.out.println("\t\n 1) Si \t\n 2) No");
-            int opcion = keyword.nextInt();
-            switch (opcion) {
-                case 1:
-                    registrarse();
-                    break;
-                case 2:
-                    break;
-                default:
-                    System.out.println("Opcion invalida");
-                    break;
-            }
-        }
+        return clienteResulta;
     }
+
 }

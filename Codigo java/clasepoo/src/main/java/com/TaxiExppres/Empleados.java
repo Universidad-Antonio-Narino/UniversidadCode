@@ -7,9 +7,18 @@ public class Empleados {
     private String licencia;
     private int cedula;
     private int salario;
+    private Servicio[] servicios;
     private boolean estado =true;
 
+    
     //encapsulamiento
+    public Servicio[] getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(Servicio[] servicios) {
+        this.servicios = servicios;
+    }
     public int getIdConductor() {
         return idConductor;
     }
@@ -64,6 +73,18 @@ public class Empleados {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+    @Override
+    public String toString() {
+        return "Empleados{" +
+                "idConductor=" + idConductor +
+                ", nombreConductor='" + nombreConductor + '\'' +
+                ", apellidoConducto='" + apellidoConducto + '\'' +
+                ", licencia='" + licencia + '\'' +
+                ", cedula=" + cedula +
+                ", salario=" + salario +
+                ", estado=" + estado +
+                '}';
     }
 
 }

@@ -54,9 +54,10 @@ public class Empresa {
         double ventasTotales = 0;
         for (Factura facturaInfo : factura) {
             for (Servicio servicio : facturaInfo.getDetalleVenta()) {
-                
+                ventasTotales +=servicio.getCosto();
             }
         }
+        System.out.println(ventasTotales);
     }
         
 }

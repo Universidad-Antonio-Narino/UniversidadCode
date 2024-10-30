@@ -65,5 +65,15 @@ public class Cliente {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "Name='" + Name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", cedula=" + cedula +
+                ", correo='" + correo + '\'' +
+                ", password='" + password + '\'' +
+                ", isLogin=" + isLogin +
+                '}';
+    }
 }
