@@ -13,7 +13,16 @@ public class Cliente {
     private String password;
     private SolicitudCredito creditoCliente;
     private boolean logueado = false;
+    private double deuda =0;
 
+
+    public double getDeuda() {
+        return deuda;
+    }
+
+    public void setDeuda(double deuda) {
+        this.deuda = deuda;
+    }
     public int getIdCliente() {
         return idCliente;
     }
@@ -95,7 +104,26 @@ public class Cliente {
 
         Scanner keyword = new Scanner(System.in);
         System.out.println("Ingrese su correo: ");
+
+        //verificaciones
+        boolean isCorreoCorrect=true;
         String correoLoguin = keyword.nextLine();
+        while (isCorreoCorrect){
+            Pattern pattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@(gmail|hotmail|yahoo|outlook)\\.(com|co|gov)$",
+                    Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(correoLoguin);
+            if (matcher.matches()) {
+                isCorreoCorrect = false;
+            }
+            else{
+                System.out.println("Formato de correo incorrecto");
+                
+                System.out.println("Ingrese su Email: ");
+                correoLoguin = keyword.nextLine();
+            }
+            
+        }
+
         System.out.println("Ingrese su contraseña: ");
         String passwordLoguin = keyword.nextLine();
         int indice = 0;
@@ -106,8 +134,10 @@ public class Cliente {
                             clienteRegistrado.setLogueado(true);
                             clienteRegistrado.setIdCliente(indice);
                             clienteResulta = clienteRegistrado;
-                        }else
-                        clienteResulta = null;
+                        }else{
+                            clienteResulta = null;
+                            break;
+                        }
                     }
                 } catch (NullPointerException e) {
                     break;
@@ -151,18 +181,22 @@ public class Cliente {
     
     @Override
     public String toString() {
-        String passwordToSee = "";
-        for (char iterable_element : password.toCharArray()) {
-            passwordToSee += '*';
+        StringBuilder oculto = new StringBuilder();
+        
+        for (int i = 0; i < getPassword().length(); i++) {
+            oculto.append("*"); // Agrega "*" para cada carácter en `numero`
         }
+        
         return "Cliente{" +
-                "name='" + name + '\'' +
+                "idCliente=" + idCliente +
+                ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", cedula=" + cedula +
                 ", correo='" + correo + '\'' +
-                ", password='" + passwordToSee + '\'' +
-                ", credito=" + creditoCliente +
+                ", password='" + oculto.toString() + '\'' +
+                ", creditoCliente=" + creditoCliente +
                 ", logueado=" + logueado +
+                ", deuda=" + deuda +
                 '}';
     }
 }

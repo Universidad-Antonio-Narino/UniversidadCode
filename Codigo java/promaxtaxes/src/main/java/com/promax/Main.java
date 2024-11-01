@@ -4,6 +4,21 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Main {
+    public static void timeSleep(String[] respuestasAsesorEspera) {
+        Random random = new Random();
+        for (int i = 0; i < 5; i++) {
+            try {
+                // Prefiero el sleep depython
+                Thread.sleep(2000);
+                int posicionContestadora = random.nextInt(respuestasAsesorEspera.length);
+                System.out.println(respuestasAsesorEspera[posicionContestadora]);
+
+            } catch (InterruptedException e) {
+                break;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // respuestas lobby de espera
         String[] respuestasAsesorEspera = {
@@ -24,9 +39,17 @@ public class Main {
         };
         // valor de referencia de una dba
         Cliente[] clienteRegister = new Cliente[2];
-        int idRegistro = 0;
         Asesor asesor = new Asesor();
+        asesor.setName("Pedro meneses");
+        asesor.setCedula(1001);
+        asesor.setCodigo(123445678);
 
+        Banco banco = new Banco();
+
+        // llenado banco
+        banco.setBankName("Ahorro Promax");
+
+        int idRegistro = 0;
         Scanner keyword = new Scanner(System.in);
         System.out.println("Bienvenido a el banco promax...");
         boolean condition = true;
@@ -46,110 +69,162 @@ public class Main {
                     break;
                 case 2:
                     Cliente clienteLogueado = ClienteOperator.login(clienteRegister);
-                    if (clienteLogueado != null) {
-                        System.out.println("Bienvenido a el banco promax señor/a " + clienteLogueado.getName() + " "
-                                + clienteLogueado.getLastName());
-                        boolean opcionMenuBanco = true;
-                        while (opcionMenuBanco) {
-                            System.out.println(
-                                    "Menu: \n\t 1) Solicitar credito \n\t 2) Verificar Saldo cuenta \n\t 4) Sacar dinero \n\t 5) Consignar dinero \n\t 6) Informacion deuda credito \n\t 7) Salir");
-                            int opcionMenu = keyword.nextInt();
-                            switch (opcionMenu) {
-                                case 1:
-                                    System.out.println("Espere un momento a que un asesor se conecte...");
-                                    Random random = new Random();
-                                    for (int i = 0; i < 5; i++) {
-                                        try {
-                                            // Prefiero el sleep depython
-                                            Thread.sleep(2000);
-                                            int posicionContestadora = random.nextInt(respuestasAsesorEspera.length);
-                                            System.out.println(respuestasAsesorEspera[posicionContestadora]);
+                    // try {
+                    System.out.println("Bienvenido a el banco promax señor/a " + clienteLogueado.getName() + " "
+                            + clienteLogueado.getLastName());
+                    boolean opcionMenuBanco = true;
+                    while (opcionMenuBanco) {
+                        System.out.println(
+                                "Menu: \n\t 1) Solicitar credito \n\t 2) Verificar Saldo cuenta \n\t 4) Sacar dinero \n\t 5) Consignar dinero \n\t 6) Informacion deuda credito \n\t 7) cerrarSesion");
+                        int opcionMenu = keyword.nextInt();
+                        switch (opcionMenu) {
+                            case 1:
+                                System.out.println("Espere un momento a que un asesor se conecte...");
+                                timeSleep(respuestasAsesorEspera);
+                                System.out.println("Lo atiende su asesor " + asesor.getName()
+                                        + " mi con codigo de empleado " + asesor.getCodigo());
+                                System.out.println(
+                                        "Para poder hacer efectivo el credito necesitamos algunos datos referentes al mismo: \n\r Cules son sus ingresos mensuales: ");
+                                Double ingresos = keyword.nextDouble();
+                                solicitudCreditoCliente.setIngresos(ingresos);
+                                ;
+                                System.out.println("Monto del credito: ");
+                                int monto = keyword.nextInt();
+                                solicitudCreditoCliente.setMonto(monto);
+                                System.out.println(
+                                        "Ingrese el tipo de credito que desea solicitar, los creditos validos son  \n\t 1) Vivienda \n\t 2) Vehiculo \n\t 3) Libre comercio \n\t 4) Salir \n Elija una opccion: ");
+                                int tipoCredito = keyword.nextInt();
+                                double gastosCliente;
+                                int cuotasCliente;
+                                switch (tipoCredito) {
+                                    case 1:
 
-                                        } catch (InterruptedException e) {
-                                            break;
+                                        producto.setTipoCredito("Vivienda");
+                                        producto.setTasas(0.012);
+                                        producto.setTiempo(20);
+                                        solicitudCreditoCliente.setTipoCredito(producto);
+                                        System.out.println("Ingrese un aproximado de gastos mensuales: ");
+                                        gastosCliente = keyword.nextDouble();
+                                        solicitudCreditoCliente.setGastos(gastosCliente);
+                                        System.out.println("Ingrese las cuotas de pago de su credito ");
+                                        cuotasCliente = keyword.nextInt();
+                                        solicitudCreditoCliente.setCuota(cuotasCliente);
+                                        solicitudCreditoCliente.setCapacidadPago();
+                                        clienteLogueado.setCreditoCliente(solicitudCreditoCliente);
+                                        System.out.println(
+                                                "Su informacion esta siendo cargada al banco, en unos momentos obtendra su respuesta de aprobacion o negacion de credito");
+                                        timeSleep(respuestasAsesorEspera);
+                                        banco.calcularAdaptabilidad(clienteLogueado);
+                                        clienteLogueado.setDeuda(
+                                                (clienteLogueado.getCreditoCliente().getCuotaFijaMensual()
+                                                        + clienteLogueado.getCreditoCliente().getGastos()));
+
+                                        Cliente[] datosLLenosNewClienteVivienda = asesor.SolicitudDatos(clienteRegister,
+                                                clienteLogueado);
+                                        clienteRegister = datosLLenosNewClienteVivienda;
+                                        for (Cliente cliente : clienteRegister) {
+                                            System.out.println(cliente);
                                         }
-                                    }
-                                    System.out.println("Lo atiende su asesor Pedro meneses");
-                                    System.out.println(
-                                            "Para poder hacer efectivo el credito necesitamos algunos datos referentes al mismo: \n\r Cules son sus ingresos mensuales: ");
-                                    Double ingresos = keyword.nextDouble();
-                                    solicitudCreditoCliente.setIngresos(ingresos);
-                                    ;
-                                    System.out.println("Monto del credito: ");
-                                    int monto = keyword.nextInt();
-                                    solicitudCreditoCliente.setMonto(monto);
-                                    System.out.println(
-                                            "Ingrese el tipo de credito que desea solicitar, los creditos validos son  \n\t 1) Vivienda \n\t 2) Vehiculo \n\t 3) Libre comercio \n\t 4) Salir \n Elija una opccion: ");
-                                    int tipoCredito = keyword.nextInt();
-                                    double gastosCliente;
-                                    int cuotasCliente;
-                                    switch (tipoCredito) {
-                                        case 1:
-                                            producto.setTipoCredito("Vivienda");
-                                            producto.setTasas(0.012);
-                                            producto.setTiempo(20);
-                                            solicitudCreditoCliente.setTipoCredito(producto);
-                                            System.out.println("Ingrese un aproximado de gastos mensuales: ");
-                                            gastosCliente = keyword.nextDouble();
-                                            solicitudCreditoCliente.setGastos(gastosCliente);
-                                            System.out.println("Ingrese las cuotas de pago de su credito ");
-                                            cuotasCliente = keyword.nextInt();
-                                            solicitudCreditoCliente.setCuota(cuotasCliente);
-                                            solicitudCreditoCliente.setCapacidadPago();
-                                            clienteLogueado.setCreditoCliente(solicitudCreditoCliente);
-                                            System.out.println(clienteLogueado);
-                                            break;
-                                        case 2:
-                                            producto.setTipoCredito("Vehiculo");
-                                            producto.setTasas(0.02);
-                                            producto.setTiempo(5);
-                                            solicitudCreditoCliente.setTipoCredito(producto);
-                                            System.out.println("Ingrese un aproximado de gastos mensuales: ");
-                                            gastosCliente = keyword.nextDouble();
-                                            solicitudCreditoCliente.setGastos(gastosCliente);
-                                            solicitudCreditoCliente.setCapacidadPago();
-                                            clienteLogueado.setCreditoCliente(solicitudCreditoCliente);
-                                            System.out.println(clienteLogueado);
-                                            break;
-                                        case 3:
-                                            producto.setTipoCredito("Libre comercio");
-                                            producto.setTasas(0.05);
-                                            producto.setTiempo(3);
-                                            solicitudCreditoCliente.setTipoCredito(producto);
-                                            System.out.println("Ingrese un aproximado de gastos mensuales: ");
-                                            gastosCliente = keyword.nextDouble();
-                                            solicitudCreditoCliente.setGastos(gastosCliente);
-                                            solicitudCreditoCliente.setCapacidadPago();
-                                            clienteLogueado.setCreditoCliente(solicitudCreditoCliente);
-                                            System.out.println(clienteLogueado);
-                                            break;
-                                        case 4:
-                                            break;
-                                        default:
-                                            break;
-                                    }
 
-                                    break;
-                                case 2:
-                                    break;
-                                case 3:
-                                    break;
-                                case 4:
-                                    break;
-                                case 5:
-                                    break;
-                                case 6:
-                                    break;
-                                case 7:
-                                    opcionMenuBanco = false;
-                                    break;
-                                default:
-                                    break;
-                            }
+                                        break;
+                                    case 2:
+
+                                        producto.setTipoCredito("Vehiculo");
+                                        producto.setTasas(0.02);
+                                        producto.setTiempo(5);
+                                        solicitudCreditoCliente.setTipoCredito(producto);
+                                        System.out.println("Ingrese un aproximado de gastos mensuales: ");
+                                        gastosCliente = keyword.nextDouble();
+                                        solicitudCreditoCliente.setGastos(gastosCliente);
+                                        System.out.println("Ingrese las cuotas de pago de su credito ");
+                                        cuotasCliente = keyword.nextInt();
+                                        solicitudCreditoCliente.setCuota(cuotasCliente);
+                                        solicitudCreditoCliente.setCapacidadPago();
+                                        clienteLogueado.setCreditoCliente(solicitudCreditoCliente);
+                                        System.out.println(
+                                                "Su informacion esta siendo cargada al banco, en unos momentos obtendra su respuesta de aprobacion o negacion de credito");
+                                        timeSleep(respuestasAsesorEspera);
+                                        banco.calcularAdaptabilidad(clienteLogueado);
+                                        clienteLogueado.setDeuda(
+                                                (clienteLogueado.getCreditoCliente().getCuotaFijaMensual()
+                                                        + clienteLogueado.getCreditoCliente().getGastos()));
+                                        Cliente[] datosLLenosNewClienteVehiculo = asesor.SolicitudDatos(clienteRegister,
+                                                clienteLogueado);
+                                        clienteRegister = datosLLenosNewClienteVehiculo;
+                                        for (Cliente cliente : clienteRegister) {
+                                            System.out.println(cliente);
+                                        }
+
+                                        break;
+                                    case 3:
+
+                                        producto.setTipoCredito("Libre comercio");
+                                        producto.setTasas(0.05);
+                                        producto.setTiempo(3);
+                                        solicitudCreditoCliente.setTipoCredito(producto);
+                                        System.out.println("Ingrese un aproximado de gastos mensuales: ");
+                                        gastosCliente = keyword.nextDouble();
+                                        solicitudCreditoCliente.setGastos(gastosCliente);
+                                        System.out.println("Ingrese las cuotas de pago de su credito ");
+                                        cuotasCliente = keyword.nextInt();
+                                        solicitudCreditoCliente.setCuota(cuotasCliente);
+                                        solicitudCreditoCliente.setCapacidadPago();
+                                        clienteLogueado.setCreditoCliente(solicitudCreditoCliente);
+                                        System.out.println(
+                                                "Su informacion esta siendo cargada al banco, en unos momentos obtendra su respuesta de aprobacion o negacion de credito");
+                                        timeSleep(respuestasAsesorEspera);
+                                        banco.calcularAdaptabilidad(clienteLogueado);
+                                        clienteLogueado.setDeuda(
+                                                (clienteLogueado.getCreditoCliente().getCuotaFijaMensual()
+                                                        + clienteLogueado.getCreditoCliente().getGastos()));
+
+                                        Cliente[] datosLLenosNewClienteLibreComercio = asesor.SolicitudDatos(
+                                                clienteRegister,
+                                                clienteLogueado);
+                                        clienteRegister = datosLLenosNewClienteLibreComercio;
+                                        for (Cliente cliente : clienteRegister) {
+                                            System.out.println(cliente);
+                                        }
+
+                                        break;
+                                    case 4:
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                                break;
+                            case 2:
+                                // es un plus, esto no se pide en el spring del parcial
+                                break;
+                            case 3:
+                                // es un plus, esto no se pide en el spring del parcial
+                                break;
+                            case 4:
+                                // es un plus, esto no se pide en el spring del parcial
+                                break;
+                            case 5:
+                                // es un plus, esto no se pide en el spring del parcial
+                                break;
+                            case 6:
+                                // es un plus, esto no se pide en el spring del parcial
+                                break;
+                            case 7:
+                                clienteLogueado.setLogueado(false);
+                                opcionMenuBanco = false;
+                                break;
+                            default:
+                                break;
                         }
-                    } else {
-                        System.out.println("Credenciales incorrectas");
                     }
+                    /*
+                     * 
+                     * } catch (Exception e) {
+                     * System.out.println("Cliente no encontrado, o credenciales incorrectas");
+                     * System.out.println(e);
+                     * }
+                     */
+
                     break;
                 case 3:
                     condition = false;

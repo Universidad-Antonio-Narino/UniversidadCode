@@ -2,13 +2,22 @@ package com.promax;
 
 import java.util.Scanner;
 public class SolicitudCredito {
-    private double ingresos;
+    private double ingresos = 1;
     private int monto;
     private Producto tipoCredito;
     private double gastos;
     private int cuota;
     private double capacidadPago;
+    private double cuotaFijaMensual;
  
+
+    public double getCuotaFijaMensual() {
+        return cuotaFijaMensual;
+    }
+
+    public void setCuotaFijaMensual(double cuotaFijaMensual) {
+        this.cuotaFijaMensual = cuotaFijaMensual;
+    }
 
     public int getCuota() {
         return cuota;
@@ -67,15 +76,16 @@ public class SolicitudCredito {
         double capacidadPago = ingresos-gastos;
         this.capacidadPago = capacidadPago;
     }
-    @Override
-    public String toString() {
-        return "SolicitudCredito{" +
-                "ingresos=" + ingresos +
-                ", monto=" + monto +
-                ", tipoCredito=" + tipoCredito +
-                ", gastos=" + gastos +
-                ", cuota=" + cuota +
-                ", capacidadPago=" + capacidadPago +
-                '}';
-    }
+@Override
+public String toString() {
+    return "SolicitudCredito{" +
+            "ingresos=" + ingresos +
+            ", monto=" + monto +
+            ", tipoCredito=" + tipoCredito +
+            ", gastos=" + gastos +
+            ", cuota=" + cuota +
+            ", capacidadPago=" + capacidadPago +
+            ", cuotaFijaMensual=" + cuotaFijaMensual +
+            '}';
+}
 }

@@ -39,8 +39,14 @@ public class Asesor {
         this.cliente = cliente;
     }
 
-    public void SolicitudDatos(){
-        Scanner keyword = new Scanner(System.in);
-        
+    public Cliente[] SolicitudDatos(Cliente[] cliente,Cliente datosCliente){
+        System.out.println("Solicitud Completada: ");
+        setCliente(cliente);
+        for (int i = 0; i < cliente.length; i++) {
+            if (cliente[i] == datosCliente){
+                cliente[i] = datosCliente;
+            }
+        }
+        return cliente;
     }
 }
