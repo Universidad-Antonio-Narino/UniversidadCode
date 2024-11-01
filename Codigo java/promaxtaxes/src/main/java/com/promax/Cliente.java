@@ -5,14 +5,22 @@ import java.util.regex.Pattern;
 import java.util.Scanner;
 
 public class Cliente {
+    private int idCliente;
     private String name;
     private String lastName;
     private int cedula;
     private String correo;
     private String password;
-    private SolicitudCredito credito;
+    private SolicitudCredito creditoCliente;
     private boolean logueado = false;
 
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
     public String getCorreo() {
         return correo;
     }
@@ -50,12 +58,12 @@ public class Cliente {
         this.logueado = logueado;
     }
 
-    public SolicitudCredito getCredito() {
-        return credito;
+    public SolicitudCredito getCreditoCliente() {
+        return creditoCliente;
     }
 
-    public void setCredito(SolicitudCredito credito) {
-        this.credito = credito;
+    public void setCreditoCliente(SolicitudCredito credito) {
+        this.creditoCliente = credito;
     }
 
     public String getName() {
@@ -90,11 +98,13 @@ public class Cliente {
         String correoLoguin = keyword.nextLine();
         System.out.println("Ingrese su contraseña: ");
         String passwordLoguin = keyword.nextLine();
+        int indice = 0;
         for (Cliente clienteRegistrado : registrado) {
                 try {
                     if (correoLoguin.equals(clienteRegistrado.getCorreo())){
                         if (passwordLoguin.equals(clienteRegistrado.getPassword())) {
                             clienteRegistrado.setLogueado(true);
+                            clienteRegistrado.setIdCliente(indice);
                             clienteResulta = clienteRegistrado;
                         }else
                         clienteResulta = null;
@@ -102,6 +112,7 @@ public class Cliente {
                 } catch (NullPointerException e) {
                     break;
                 }
+                indice++;
             }
             return clienteResulta;
     }
@@ -140,13 +151,17 @@ public class Cliente {
     
     @Override
     public String toString() {
+        String passwordToSee = "";
+        for (char iterable_element : password.toCharArray()) {
+            passwordToSee += '*';
+        }
         return "Cliente{" +
                 "name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", cedula=" + cedula +
                 ", correo='" + correo + '\'' +
-                ", password='" + password + '\'' +
-                ", credito=" + credito +
+                ", password='" + passwordToSee + '\'' +
+                ", credito=" + creditoCliente +
                 ", logueado=" + logueado +
                 '}';
     }

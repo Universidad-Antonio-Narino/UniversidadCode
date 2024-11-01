@@ -1,31 +1,40 @@
 package com.promax;
 
+import java.util.Scanner;
 public class Producto {
-    private String[] tipoCredito = {"Vehiculo","Vivienda","Libre Inversion"};
-    private Double[] tasas = {0.02,0.012,0.05};
-    private int[] tiempo = {5,20,3};
+    private String tipoCredito;
+    private Double tasas;
+    private int tiempo;
 
-    public String[] getTipoCredito() {
+    public String getTipoCredito() {
         return tipoCredito;
     }
 
-    private void setTipoCredito(String[] tipoCredito) {
+    public void setTipoCredito(String tipoCredito) {
         this.tipoCredito = tipoCredito;
     }
 
-    public Double[] getTasas() {
+    public Double getTasas() {
         return tasas;
     }
 
-    private void setTasas(Double[] tasas) {
+    public void setTasas(Double tasas) {
         this.tasas = tasas;
     }
 
-    public int[] getTiempo() {
+    public int getTiempo() {
         return tiempo;
     }
 
-    private void setTiempo(int[] tiempo) {
-        this.tiempo = tiempo;
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo*12;
+    }
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "tipoCredito='" + tipoCredito + '\'' +
+                ", tasas=" + tasas +
+                ", tiempo=" + tiempo +
+                '}';
     }
 }

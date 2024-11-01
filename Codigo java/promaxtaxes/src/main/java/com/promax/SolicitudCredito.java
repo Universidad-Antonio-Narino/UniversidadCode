@@ -1,13 +1,32 @@
 package com.promax;
 
+import java.util.Scanner;
 public class SolicitudCredito {
     private double ingresos;
     private int monto;
     private Producto tipoCredito;
     private double gastos;
-    private int capacidadPago;
-    
-    
+    private int cuota;
+    private double capacidadPago;
+ 
+
+    public int getCuota() {
+        return cuota;
+    }
+
+    public void setCuota(int cuota) {
+        Scanner keyword = new Scanner(System.in);
+        if (cuota<tipoCredito.getTiempo()) {
+            System.out.println("No se puede realizar el credito las cuotas no superan el tiempo minimo");
+            System.out.println("Cuotas minimas para el credito = "+tipoCredito.getTiempo());
+            System.out.println("Ingrese de nuevo una cuota valida: ");
+            int cuotaValida = keyword.nextInt();
+            setCuota(cuotaValida);
+        }else{
+            this.cuota = cuota;
+        }
+
+    }
     public double getIngresos() {
         return ingresos;
     }
@@ -40,11 +59,23 @@ public class SolicitudCredito {
         this.gastos = gastos;
     }
 
-    public int getCapacidadPago() {
+    public Double getCapacidadPago() {
         return capacidadPago;
     }
 
-    public void setCapacidadPago(int capacidadPago) {
+    public void setCapacidadPago() {
+        double capacidadPago = ingresos-gastos;
         this.capacidadPago = capacidadPago;
+    }
+    @Override
+    public String toString() {
+        return "SolicitudCredito{" +
+                "ingresos=" + ingresos +
+                ", monto=" + monto +
+                ", tipoCredito=" + tipoCredito +
+                ", gastos=" + gastos +
+                ", cuota=" + cuota +
+                ", capacidadPago=" + capacidadPago +
+                '}';
     }
 }
