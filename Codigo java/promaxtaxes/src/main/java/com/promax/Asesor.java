@@ -1,29 +1,12 @@
 package com.promax;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.Scanner;
 public class Asesor {
     private String name;
     private int cedula;
     private int codigo;
-    private Cliente cliente;
-    private SolicitudCredito credito;
-    public Cliente getCliente() {
-        return cliente;
-    }
+    private Cliente[] cliente;
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public SolicitudCredito getCredito() {
-        return credito;
-    }
-
-    public void setCredito(SolicitudCredito credito) {
-        this.credito = credito;
-    }
     public String getName() {
         return name;
     }
@@ -48,7 +31,16 @@ public class Asesor {
         this.codigo = codigo;
     }
 
+    public Cliente[] getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente[] cliente) {
+        this.cliente = cliente;
+    }
+
     public void SolicitudDatos(){
-        //llenar
+        Scanner keyword = new Scanner(System.in);
+        
     }
 }
