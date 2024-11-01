@@ -67,7 +67,7 @@ public class Banco {
                 * clienteSolicitaCliente.getCreditoCliente().getTipoCredito().getTasas())
                 / (1 - Math.pow((1 + clienteSolicitaCliente.getCreditoCliente().getTipoCredito().getTasas()),
                         -clienteSolicitaCliente.getCreditoCliente().getCuota()))*100)/100;
-        if (capacidadPago>= estudioAptabilidad) {
+        if (capacidadPago >= estudioAptabilidad) {
             System.out.println("Usted es apto para el credito");
             clienteSolicitaCliente.getCreditoCliente().setCuotaFijaMensual(Math.round(cuotaFijaMensual*100)/100);
             Adaptabilidad = true;
